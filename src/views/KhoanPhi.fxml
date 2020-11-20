@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="9.0" layoutY="91.0" prefHeight="493.0" prefWidth="500.0">
+        <columns>
+          <TableColumn prefWidth="93.0" text="    Mã &#10;khoản thu" />
+          <TableColumn prefWidth="194.0" text="    Tên &#10;khoản thu" />
+            <TableColumn prefWidth="109.0" text="Số tiền" />
+            <TableColumn prefWidth="103.0" text="    Loại&#10;khoản thu" />
+        </columns>
+      </TableView>
+      <TextField layoutX="9.0" layoutY="44.0" prefHeight="39.0" prefWidth="321.0" />
+      <ComboBox layoutX="343.0" layoutY="44.0" prefHeight="39.0" prefWidth="166.0" />
+      <Button layoutX="518.0" layoutY="44.0" mnemonicParsing="false" prefWidth="100.0" text="Tìm kiếm" />
+      <Button layoutX="520.0" layoutY="91.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="96.0" text="Thêm" />
+      <Button layoutX="520.0" layoutY="142.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="96.0" text="Xóa" />
+      <Button layoutX="520.0" layoutY="190.0" mnemonicParsing="false" text="Cập nhật" />
+   </children>
+</AnchorPane>

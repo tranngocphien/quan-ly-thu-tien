@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <TableView layoutX="7.0" layoutY="94.0" prefHeight="500.0" prefWidth="500.0">
+        <columns>
+          <TableColumn prefWidth="95.0" text="     Mã &#10;nhân khẩu" />
+          <TableColumn prefWidth="118.0" text="Tên" />
+            <TableColumn prefWidth="47.0" text="Tuổi" />
+            <TableColumn prefWidth="86.0" text="CMND" />
+            <TableColumn prefWidth="84.0" text="SĐT" />
+            <TableColumn prefWidth="69.0" text="Mã hộ" />
+        </columns>
+      </TableView>
+      <TextField layoutX="7.0" layoutY="49.0" prefHeight="39.0" prefWidth="310.0" />
+      <ComboBox layoutX="357.0" layoutY="49.0" prefWidth="150.0" />
+      <Button layoutX="514.0" layoutY="49.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Tìm kiếm" />
+      <Button layoutX="514.0" layoutY="94.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="109.0" text="Thêm nhân khẩu" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="514.0" layoutY="187.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="109.0" text="Xóa nhân khẩu" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="514.0" layoutY="278.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="109.0" text="Cập nhật nhân khẩu" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>

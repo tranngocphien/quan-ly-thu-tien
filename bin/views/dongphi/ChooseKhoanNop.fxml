@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="628.0" layoutY="52.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="147.0" text="Tìm kiếm" />
+      <ComboBox layoutX="450.0" layoutY="52.0" prefHeight="39.0" prefWidth="166.0" />
+      <TextField layoutX="48.0" layoutY="52.0" prefHeight="39.0" prefWidth="390.0" />
+      <TableView layoutX="25.0" layoutY="98.0" prefHeight="447.0" prefWidth="750.0">
+         <columns>
+            <TableColumn prefWidth="106.0" text="    Mã &#10;khoản thu" />
+            <TableColumn prefWidth="374.0" text="    Tên &#10;khoản thu" />
+            <TableColumn prefWidth="160.0" text="Số tiền" />
+            <TableColumn prefWidth="109.0" text="    Loại&#10;khoản thu" />
+         </columns>
+      </TableView>
+      <Button layoutX="377.0" layoutY="553.0" mnemonicParsing="false" text="Xác nhận" />
+      <Label layoutX="287.0" layoutY="14.0" text="CHỌN KHOẢN THU">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="122.0" layoutY="144.0" text="Mã khoản thu" />
+      <TextField layoutX="254.0" layoutY="138.0" prefHeight="39.0" prefWidth="353.0" />
+      <Label layoutX="120.0" layoutY="225.0" text="Tên khoản thu" />
+      <TextField layoutX="254.0" layoutY="219.0" prefHeight="39.0" prefWidth="353.0" />
+      <Label layoutX="118.0" layoutY="301.0" text="Loại khoản thu" />
+      <TextField layoutX="254.0" layoutY="295.0" prefHeight="39.0" prefWidth="353.0" />
+      <Label layoutX="118.0" layoutY="372.0" text="Số tiền" />
+      <TextField layoutX="254.0" layoutY="366.0" prefHeight="39.0" prefWidth="353.0" />
+      <Button layoutX="383.0" layoutY="487.0" mnemonicParsing="false" text="Thêm" />
+      <Label layoutX="303.0" layoutY="58.0" text="THÊM KHOẢN THU">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

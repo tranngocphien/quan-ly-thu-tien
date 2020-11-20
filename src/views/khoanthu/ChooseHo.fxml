@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <TableView layoutX="14.0" layoutY="123.0" prefHeight="403.0" prefWidth="553.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Mã hộ" />
+          <TableColumn prefWidth="162.0" text="Tên chủ hộ" />
+            <TableColumn prefWidth="145.0" text="Số thành viên" />
+            <TableColumn prefWidth="170.0" text="Địa chỉ" />
+        </columns>
+      </TableView>
+      <TextField layoutX="14.0" layoutY="71.0" prefHeight="39.0" prefWidth="446.0" />
+      <Button layoutX="489.0" layoutY="71.0" mnemonicParsing="false" text="Tìm kiếm" />
+      <Button layoutX="222.0" layoutY="538.0" mnemonicParsing="false" text="Xác nhận" />
+   </children>
+</AnchorPane>
