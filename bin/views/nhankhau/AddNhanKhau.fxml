@@ -7,18 +7,23 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.AddNhanKhau">
    <children>
-      <Label layoutX="140.0" layoutY="73.0" text="Mã nhân khẩu" />
-      <Label layoutX="140.0" layoutY="128.0" text="Tên nhân khẩu" />
-      <Label layoutX="138.0" layoutY="181.0" text="Tuổi" />
-      <Label layoutX="140.0" layoutY="241.0" text="Số CMND" />
-      <Label layoutX="140.0" layoutY="300.0" text="Số điện thoại" />
-      <Label layoutX="145.0" layoutY="369.0" text="Mã hộ khẩu" />
-      <TextField fx:id="tfId" layoutX="287.0" layoutY="67.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField fx:id="tfTen" layoutX="287.0" layoutY="122.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField fx:id="tfTuoi" layoutX="287.0" layoutY="175.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField fx:id="tfCmnd" layoutX="287.0" layoutY="235.0" prefHeight="39.0" prefWidth="437.0" />
-      <Button layoutX="386.0" layoutY="448.0" mnemonicParsing="false" onAction="#addNhanKhau" text="Thêm" />
-      <TextField fx:id="tfSdt" layoutX="287.0" layoutY="294.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField fx:id="tfMaHoKhau" layoutX="287.0" layoutY="363.0" prefHeight="39.0" prefWidth="437.0" />
+      <Label layoutX="99.0" layoutY="73.0" text="Mã nhân khẩu" />
+      <Label layoutX="97.0" layoutY="128.0" text="Tên nhân khẩu" />
+      <Label layoutX="97.0" layoutY="181.0" text="Tuổi" />
+      <Label layoutX="99.0" layoutY="241.0" text="Số CMND" />
+      <Label layoutX="97.0" layoutY="300.0" text="Số điện thoại" />
+      <Label layoutX="102.0" layoutY="369.0" text="Mã hộ khẩu" />
+      <TextField fx:id="tfId" layoutX="269.0" layoutY="67.0" prefHeight="39.0" prefWidth="435.0" />
+      <TextField fx:id="tfTen" layoutX="269.0" layoutY="122.0" prefHeight="39.0" prefWidth="435.0" />
+      <TextField fx:id="tfTuoi" layoutX="269.0" layoutY="175.0" prefHeight="39.0" prefWidth="435.0" />
+      <TextField fx:id="tfCmnd" layoutX="269.0" layoutY="235.0" prefHeight="39.0" prefWidth="435.0" />
+      <Button layoutX="390.0" layoutY="537.0" mnemonicParsing="false" onAction="#addNhanKhau" text="Thêm" />
+      <TextField fx:id="tfSdt" layoutX="269.0" layoutY="294.0" prefHeight="39.0" prefWidth="435.0" />
+      <TextField fx:id="tfMaHoKhau" layoutX="269.0" layoutY="363.0" prefHeight="39.0" prefWidth="435.0" />
+      <Label layoutX="100.0" layoutY="440.0" text="Quan hệ với chủ hộ" />
+      <TextField fx:id="tfQuanHe" layoutX="270.0" layoutY="434.0" prefHeight="39.0" prefWidth="435.0" />
+      <CheckBox fx:id="cboxChuHo" layoutX="288.0" layoutY="501.0" mnemonicParsing="false" />
+      <Label layoutX="103.0" layoutY="501.0" text="Chủ hộ" />
+      <Label layoutX="339.0" layoutY="26.0" text="THÊM NHÂN KHẨU" />
    </children>
 </AnchorPane>

@@ -21,8 +21,8 @@
       <TextField fx:id="tfSdt" layoutX="269.0" layoutY="294.0" prefHeight="39.0" prefWidth="435.0" />
       <TextField fx:id="tfMaHoKhau" layoutX="269.0" layoutY="363.0" prefHeight="39.0" prefWidth="435.0" />
       <Label layoutX="100.0" layoutY="440.0" text="Quan hệ với chủ hộ" />
-      <TextField layoutX="270.0" layoutY="434.0" prefHeight="39.0" prefWidth="435.0" />
-      <CheckBox layoutX="288.0" layoutY="501.0" mnemonicParsing="false" />
+      <TextField fx:id="tfQuanHe" layoutX="270.0" layoutY="434.0" prefHeight="39.0" prefWidth="435.0" />
+      <CheckBox fx:id="cboxChuHo" layoutX="288.0" layoutY="501.0" mnemonicParsing="false" />
       <Label layoutX="103.0" layoutY="501.0" text="Chủ hộ" />
       <Label layoutX="339.0" layoutY="26.0" text="THÊM NHÂN KHẨU" />
    </children>

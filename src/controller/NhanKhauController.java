@@ -10,13 +10,11 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
-import controller.nhankhau.AddNhanKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -25,7 +23,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import models.NhanKhauModel;
 import services.NhanKhauService;
@@ -57,10 +54,11 @@ public class NhanKhauController implements Initializable {
 		listNhanKhau = new NhanKhauService().getListNhanKhau();
 	}
 
+	// Hien thi thong tin nhan khau
 	public void showNhanKhau() throws ClassNotFoundException, SQLException {
 		listValueTableView = FXCollections.observableArrayList(listNhanKhau);
 
-		// set Table views
+		// Thiet lap Table views
 		colMaNhanKhau.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("id"));
 		colTen.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("ten"));
 		colTuoi.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("tuoi"));
@@ -68,12 +66,13 @@ public class NhanKhauController implements Initializable {
 		colSDT.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("sdt"));
 		tvNhanKhau.setItems(listValueTableView);
 
-		// set Combo box
+		// Thiet lap Combo box
 		ObservableList<String> listComboBox = FXCollections.observableArrayList("Tên", "Tuổi", "id");
 		cbChooseSearch.setValue("Chọn");
 		cbChooseSearch.setItems(listComboBox);
 	}
 
+	// Tim kiem nhan khau theo ten, tuoi, id
 	public void searchNhanKhau() {
 		ObservableList<NhanKhauModel> listValueTableView_tmp;
 		String keySearch = tfSearch.getText();
@@ -174,7 +173,8 @@ public class NhanKhauController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(home,800,600));
         stage.setResizable(false);
-        stage.show();
+        stage.showAndWait();
+        showNhanKhau();
 	}
 	
 	@Override
