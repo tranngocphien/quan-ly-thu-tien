@@ -21,6 +21,13 @@ public class LoginController {
 	public void Login(ActionEvent event) throws IOException {
 		String name = tfUsername.getText();
 		String pass = tfPassword.getText();
+		
+		// check username and password
+//		if(!name.equals("admin") || !pass.equals("admin")) {
+//			JOptionPane.showMessageDialog(null, "Sai mật khẩu hoặc tài khoản!");
+//			return false;
+//		}
+		
 		Parent home = FXMLLoader.load(getClass().getResource("/views/Home3.fxml"));
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(home,800,600));
