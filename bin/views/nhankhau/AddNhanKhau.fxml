@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.AddNhanKhau">
    <children>
       <Label layoutX="140.0" layoutY="73.0" text="Mã nhân khẩu" />
       <Label layoutX="140.0" layoutY="128.0" text="Tên nhân khẩu" />
@@ -13,12 +13,12 @@
       <Label layoutX="140.0" layoutY="241.0" text="Số CMND" />
       <Label layoutX="140.0" layoutY="300.0" text="Số điện thoại" />
       <Label layoutX="145.0" layoutY="369.0" text="Mã hộ khẩu" />
-      <TextField layoutX="287.0" layoutY="67.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField layoutX="287.0" layoutY="122.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField layoutX="287.0" layoutY="175.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField layoutX="287.0" layoutY="235.0" prefHeight="39.0" prefWidth="437.0" />
-      <Button layoutX="386.0" layoutY="448.0" mnemonicParsing="false" text="Thêm" />
-      <TextField layoutX="287.0" layoutY="294.0" prefHeight="39.0" prefWidth="437.0" />
-      <TextField layoutX="287.0" layoutY="363.0" prefHeight="39.0" prefWidth="437.0" />
+      <TextField fx:id="tfId" layoutX="287.0" layoutY="67.0" prefHeight="39.0" prefWidth="437.0" />
+      <TextField fx:id="tfTen" layoutX="287.0" layoutY="122.0" prefHeight="39.0" prefWidth="437.0" />
+      <TextField fx:id="tfTuoi" layoutX="287.0" layoutY="175.0" prefHeight="39.0" prefWidth="437.0" />
+      <TextField fx:id="tfCmnd" layoutX="287.0" layoutY="235.0" prefHeight="39.0" prefWidth="437.0" />
+      <Button layoutX="386.0" layoutY="448.0" mnemonicParsing="false" onAction="#addNhanKhau" text="Thêm" />
+      <TextField fx:id="tfSdt" layoutX="287.0" layoutY="294.0" prefHeight="39.0" prefWidth="437.0" />
+      <TextField fx:id="tfMaHoKhau" layoutX="287.0" layoutY="363.0" prefHeight="39.0" prefWidth="437.0" />
    </children>
 </AnchorPane>

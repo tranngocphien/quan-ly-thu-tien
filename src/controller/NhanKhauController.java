@@ -1,6 +1,6 @@
 package controller;
 
-import java.awt.event.ActionEvent;
+import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import controller.nhankhau.AddNhanKhau;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -168,12 +169,12 @@ public class NhanKhauController implements Initializable {
 		}
 	}
 
-	public void addNhanKhau(ActionEvent event) throws IOException {
-//		Parent home = FXMLLoader.load(getClass().getResource("/views.nhankhau/AddNhanKhau.fxml"));
-//        Stage stage = new Stage();
-//        stage.setScene(new Scene(home,600,400));
-//        stage.setResizable(false);
-//        stage.show();
+	public void addNhanKhau(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+		Parent home = FXMLLoader.load(getClass().getResource("/views/nhankhau/AddNhanKhau.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(home,800,600));
+        stage.setResizable(false);
+        stage.show();
 	}
 	
 	@Override
