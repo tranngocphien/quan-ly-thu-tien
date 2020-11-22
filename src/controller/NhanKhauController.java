@@ -50,12 +50,9 @@ public class NhanKhauController implements Initializable {
 	ObservableList<NhanKhauModel> listValueTableView;
 	private List<NhanKhauModel> listNhanKhau;
 
-	public NhanKhauController() throws ClassNotFoundException, SQLException {
-		listNhanKhau = new NhanKhauService().getListNhanKhau();
-	}
-
 	// Hien thi thong tin nhan khau
 	public void showNhanKhau() throws ClassNotFoundException, SQLException {
+		listNhanKhau = new NhanKhauService().getListNhanKhau();
 		listValueTableView = FXCollections.observableArrayList(listNhanKhau);
 
 		// Thiet lap Table views

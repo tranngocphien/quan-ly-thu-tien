@@ -33,8 +33,5 @@ public class NopTienModel {
 	public void setNgayThu(Date ngayThu) {
 		this.ngayThu = ngayThu;
 	}
-	
-	
-	
-	
+
 }

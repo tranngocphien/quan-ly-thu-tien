@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HoKhauController">
    <children>
-      <TableView layoutX="18.0" layoutY="86.0" prefHeight="500.0" prefWidth="501.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="86.0">
+      <TableView fx:id="tvHoKhau" layoutX="18.0" layoutY="86.0" prefHeight="500.0" prefWidth="501.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="86.0">
         <columns>
-          <TableColumn prefWidth="81.0" text="Mã hộ" />
-            <TableColumn prefWidth="193.0" text="Mã chủ hộ" />
-            <TableColumn prefWidth="98.0" resizable="false" text="      Số &#10;thành viên" />
-            <TableColumn prefWidth="134.0" text="Địa chỉ" />
+          <TableColumn fx:id="colMaHoKhau" prefWidth="81.0" text="Mã hộ" />
+            <TableColumn fx:id="colMaChuHo" prefWidth="193.0" text="Mã chủ hộ" />
+            <TableColumn fx:id="colSoThanhVien" prefWidth="98.0" resizable="false" text="      Số &#10;thành viên" />
+            <TableColumn fx:id="colDiaChi" prefWidth="134.0" text="Địa chỉ" />
         </columns>
       </TableView>
       <TextField layoutX="18.0" layoutY="29.0" prefHeight="39.0" prefWidth="301.0" />
       <Button layoutX="495.0" layoutY="29.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Tìm kiếm" />
-      <ComboBox layoutX="327.0" layoutY="29.0" prefHeight="39.0" prefWidth="158.0" />
+      <ComboBox fx:id="cbChooseSearch" layoutX="327.0" layoutY="29.0" prefHeight="39.0" prefWidth="158.0" />
       <Button layoutX="528.0" layoutY="86.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Thêm" />
       <Button layoutX="528.0" layoutY="138.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Sửa" />
       <Button layoutX="528.0" layoutY="191.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Xóa" />
