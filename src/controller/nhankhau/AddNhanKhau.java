@@ -2,6 +2,7 @@ package controller.nhankhau;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
@@ -36,23 +37,19 @@ public class AddNhanKhau {
 	private CheckBox cboxChuHo;
 
 	public void addNhanKhau(ActionEvent event) throws ClassNotFoundException, SQLException {
-		// Kiem tra nhap vao ID
-		if (tfId.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào ID");
+		// Khai bao mot mau de so sanh va kiem tra cac truong nhap vao
+		Pattern pattern; 
+		
+		// Kiem tra nhap vao ID 
+		// ID phai la mot so it hon 11 chu so va khong duoc chua chu cai
+		pattern = Pattern.compile("\\d{1,11}");
+		if(!pattern.matcher(tfId.getText()).matches()) {
+			JOptionPane.showMessageDialog(null, "     ID không chứa chữ cái \nvà phải là 1 số nhỏ hơn 11 chữ số");
 			return;
-		} else if (tfId.getText().length() > 11) {
-			JOptionPane.showMessageDialog(null, "ID phải nhỏ hơn 11 số");
-			return;
-		} else {
-			for (int i = 0; i < tfId.getText().length(); i++) {
-				if ((int) tfId.getText().charAt(i) < 48 || (int) tfId.getText().charAt(i) > 57) {
-					JOptionPane.showMessageDialog(null, "ID phải là 1 số");
-					return;
-				}
-			}
 		}
 
 		// Kiem tra nhap vao Ten
+		// Ten la chuoi ki tu co nhieu nhat 50 ki tu
 		if (tfTen.getText().length() == 0) {
 			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào Tên");
 			return;
@@ -64,67 +61,35 @@ public class AddNhanKhau {
 		}
 
 		// Kiem tra nhap vao Tuoi
-		if (tfTuoi.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào Tuổi");
+		// Tuoi nhap vao phai la mot so co nhieu nhat 3 chu so
+		pattern = Pattern.compile("\\d{1,3}");
+		if(!pattern.matcher(tfTuoi.getText()).matches()) {
+			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào tuổi là 1 số \n    và số tuổi hợp lệ");
 			return;
-		} else if (tfTuoi.getText().length() > 11) {
-			JOptionPane.showMessageDialog(null, "Tuổi phải nhỏ hơn 11 số");
-			return;
-		} else {
-			for (int i = 0; i < tfTuoi.getText().length(); i++) {
-				if ((int) tfTuoi.getText().charAt(i) < 48 || (int) tfTuoi.getText().charAt(i) > 57) {
-					JOptionPane.showMessageDialog(null, "Tuổi phải là 1 số");
-					return;
-				}
-			}
 		}
-
+		
 		// Kiem tra so CMND nhap vao
-		if (tfCmnd.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào CMND");
+		// CMND nhap vao phai khong chua ki tu chu cai la nho hon 20 chu so
+		pattern = Pattern.compile("\\d{1,20}");
+		if(!pattern.matcher(tfCmnd.getText()).matches()) {
+			JOptionPane.showMessageDialog(null, "    CMND không bao gồm chữ \nvà phải nhỏ hơn 20 chữ số");
 			return;
-		} else if (tfCmnd.getText().length() > 20) {
-			JOptionPane.showMessageDialog(null, "CMND phải nhỏ hơn 20 số");
-			return;
-		} else {
-			for (int i = 0; i < tfCmnd.getText().length(); i++) {
-				if ((int) tfCmnd.getText().charAt(i) < 48 || (int) tfCmnd.getText().charAt(i) > 57) {
-					JOptionPane.showMessageDialog(null, "CMND không bao gồm chữ");
-					return;
-				}
-			}
 		}
 		
 		// Kiem tra sdt nhap vao
-		if (tfSdt.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào SĐT");
+		// SDT nhap vao phai khong chua chu cai va nho hon 15 chu so
+		pattern = Pattern.compile("\\d{1,15}");
+		if(!pattern.matcher(tfSdt.getText()).matches()) {
+			JOptionPane.showMessageDialog(null, "  SĐT không bao gồm chữ \nvà phải nhỏ hơn 15 chữ số");
 			return;
-		} else if (tfSdt.getText().length() > 15) {
-			JOptionPane.showMessageDialog(null, "SĐT phải nhỏ hơn 15 số");
-			return;
-		} else {
-			for (int i = 0; i < tfSdt.getText().length(); i++) {
-				if ((int) tfSdt.getText().charAt(i) < 48 || (int) tfSdt.getText().charAt(i) > 57) {
-					JOptionPane.showMessageDialog(null, "SĐT không hợp lệ! Số điện thoại không gồm chữ");
-					return;
-				}
-			}
 		}
-
+		
 		// Kiem tra ma ho nhap vao
-		if (tfMaHoKhau.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào Mã hộ khẩu");
+		// Ma ho nhap vao phai khong chua chu cai va nho hon 11 chu so 
+		pattern = Pattern.compile("\\d{1,11}");
+		if(!pattern.matcher(tfMaHoKhau.getText()).matches()) {
+			JOptionPane.showMessageDialog(null, "       Mã hộ không chứa chữ cái \nvà phải là 1 số nhỏ hơn 11 chữ số");
 			return;
-		} else if (tfMaHoKhau.getText().length() > 11) {
-			JOptionPane.showMessageDialog(null, "Mã hộ khẩu phải nhỏ hơn 11 số");
-			return;
-		} else {
-			for (int i = 0; i < tfMaHoKhau.getText().length(); i++) {
-				if ((int) tfMaHoKhau.getText().charAt(i) < 48 || (int) tfId.getText().charAt(i) > 57) {
-					JOptionPane.showMessageDialog(null, "Mã hộ khẩu phải là 1 số");
-					return;
-				}
-			}
 		}
 		
 
