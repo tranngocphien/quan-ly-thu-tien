@@ -23,6 +23,9 @@ public class QuanHeService {
         preparedStatement.setInt(1,quanHeModel.getMaHo());
         preparedStatement.setInt(2, quanHeModel.getIdThanhVien());
         preparedStatement.setString(3, quanHeModel.getQuanHe());
+        preparedStatement.executeUpdate();  
+        query = "UPDATE ho_khau set SoThanhVien = SoThanhVien + 1 where maho='"+ quanHeModel.getMaHo()+"';";
+        preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();
@@ -34,6 +37,9 @@ public class QuanHeService {
 		String sql = "DELETE FROM quan_he WHERE  MaHo='" +maHo + "' AND IDThanhVien = '" +idThanhVien+"';" ;
             Connection connection = MysqlConnection.getMysqlConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.executeUpdate();
+            sql = "UPDATE ho_khau set SoThanhVien = SoThanhVien - 1 where maho='"+ maHo +"';";
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.executeUpdate();
             preparedStatement.close();
             connection.close();
