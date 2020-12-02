@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.UpdateNhanKhau">
    <children>
-      <TextField layoutX="152.0" layoutY="375.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField layoutX="152.0" layoutY="319.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField layoutX="152.0" layoutY="259.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField layoutX="152.0" layoutY="205.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField layoutX="152.0" layoutY="146.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField layoutX="152.0" layoutY="91.0" prefHeight="39.0" prefWidth="203.0" />
+      <TextField fx:id="tfMaHoKhau" layoutX="152.0" layoutY="375.0" prefHeight="39.0" prefWidth="203.0" />
+      <TextField fx:id="tfSoDienThoai" layoutX="152.0" layoutY="319.0" prefHeight="39.0" prefWidth="203.0" />
+      <TextField fx:id="tfSoCMND" layoutX="152.0" layoutY="259.0" prefHeight="39.0" prefWidth="203.0" />
+      <TextField fx:id="tfTuoi" layoutX="152.0" layoutY="205.0" prefHeight="39.0" prefWidth="203.0" />
+      <TextField fx:id="tfTenNhanKhau" layoutX="152.0" layoutY="146.0" prefHeight="39.0" prefWidth="203.0" />
+      <TextField fx:id="tfMaNhanKhau" layoutX="152.0" layoutY="91.0" prefHeight="39.0" prefWidth="203.0" />
       <Label layoutX="25.0" layoutY="381.0" text="Mã hộ khẩu" />
       <Label layoutX="20.0" layoutY="325.0" text="Số điện thoại" />
       <Label layoutX="25.0" layoutY="265.0" text="Số CMND" />

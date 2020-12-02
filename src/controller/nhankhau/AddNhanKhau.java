@@ -9,8 +9,11 @@ import javax.swing.JOptionPane;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import models.NhanKhauModel;
@@ -37,74 +40,79 @@ public class AddNhanKhau {
 	private CheckBox cboxChuHo;
 
 	public void addNhanKhau(ActionEvent event) throws ClassNotFoundException, SQLException {
-		// Khai bao mot mau de so sanh va kiem tra cac truong nhap vao
+		// khai bao mot mau de so sanh
 		Pattern pattern; 
 		
-		// Kiem tra nhap vao ID 
-		// ID phai la mot so it hon 11 chu so va khong duoc chua chu cai
+		// kiem tra id nhap vao 
+		// id la day so tu 1 toi 11 chu so
 		pattern = Pattern.compile("\\d{1,11}");
 		if(!pattern.matcher(tfId.getText()).matches()) {
-			JOptionPane.showMessageDialog(null, "     ID không chứa chữ cái \nvà phải là 1 số nhỏ hơn 11 chữ số");
+			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào mã nhân khẩu hợp lệ!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 			return;
 		}
 
-		// Kiem tra nhap vao Ten
-		// Ten la chuoi ki tu co nhieu nhat 50 ki tu
-		if (tfTen.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào Tên");
+		// kiem tra ten nhap vao
+		// ten nhap vao la chuoi tu 1 toi 50 ki tu
+		pattern = Pattern.compile("\\w{1,50}");
+		if(!pattern.matcher(tfTen.getText()).matches()) {
+			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 tên hợp lệ!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 			return;
-		} else {
-			if (tfTen.getText().length() > 50) {
-				JOptionPane.showMessageDialog(null, "Tên phải ít hơn 50 kí tự");
-				return;
-			}
 		}
 
-		// Kiem tra nhap vao Tuoi
-		// Tuoi nhap vao phai la mot so co nhieu nhat 3 chu so
+		// kiem tra tuoi nhap vao
+		// tuoi nhap vao nhieu nhat la 1 so co 3 chu so
 		pattern = Pattern.compile("\\d{1,3}");
 		if(!pattern.matcher(tfTuoi.getText()).matches()) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào tuổi là 1 số \n    và số tuổi hợp lệ");
+			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào tuổi hợp lệ!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 			return;
 		}
 		
-		// Kiem tra so CMND nhap vao
-		// CMND nhap vao phai khong chua ki tu chu cai la nho hon 20 chu so
+		// kiem tra cmnd nhap vao
+		// cmnd nhap vao phai la mot day so tu 1 toi 20 so 
 		pattern = Pattern.compile("\\d{1,20}");
 		if(!pattern.matcher(tfCmnd.getText()).matches()) {
-			JOptionPane.showMessageDialog(null, "    CMND không bao gồm chữ \nvà phải nhỏ hơn 20 chữ số");
+			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào CMND hợp lệ!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 			return;
 		}
 		
-		// Kiem tra sdt nhap vao
+		// kiem tra sdt nhap vao
 		// SDT nhap vao phai khong chua chu cai va nho hon 15 chu so
 		pattern = Pattern.compile("\\d{1,15}");
 		if(!pattern.matcher(tfSdt.getText()).matches()) {
-			JOptionPane.showMessageDialog(null, "  SĐT không bao gồm chữ \nvà phải nhỏ hơn 15 chữ số");
+			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào SĐT hợp lệ!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 			return;
 		}
 		
-		// Kiem tra ma ho nhap vao
-		// Ma ho nhap vao phai khong chua chu cai va nho hon 11 chu so 
+		// kiem tra maHo nhap vao
+		// ma ho nhap vao phai khong chua chu cai va nho hon 11 chu so 
 		pattern = Pattern.compile("\\d{1,11}");
 		if(!pattern.matcher(tfMaHoKhau.getText()).matches()) {
-			JOptionPane.showMessageDialog(null, "       Mã hộ không chứa chữ cái \nvà phải là 1 số nhỏ hơn 11 chữ số");
+			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào mã hộ hợp lệ!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 			return;
 		}
 		
-
 		// Kiem tra Quan he nhap vao
-		if (tfQuanHe.getText().length() == 0) {
-			JOptionPane.showMessageDialog(null, "Bạn phải nhập vào Tên");
+		pattern = Pattern.compile("\\w{1,50}");
+		if(!pattern.matcher(tfTen.getText()).matches()) {
+			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 quan hệ hợp lệ!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 			return;
-		} else {
-			if (tfQuanHe.getText().length() > 30) {
-				JOptionPane.showMessageDialog(null, "Tên phải ít hơn 30 kí tự");
-				return;
-			}
 		}
 		
-		// Ghi nhan gia tri da nhap vao hop le
+		// ghi nhan gia tri ghi tat ca deu da hop le
 		int idInt = Integer.parseInt(tfId.getText());
 		String tenString = tfTen.getText();
 		int tuoiInt = Integer.parseInt(tfTuoi.getText());
@@ -126,8 +134,10 @@ public class AddNhanKhau {
 			
 			Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 	        stage.close();
+		} else {
+			Alert alert = new Alert(AlertType.WARNING, "Trường hợp này mình chưa xét cứ bình tĩnh!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 		}
-		
-				
 	}
 }

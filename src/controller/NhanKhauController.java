@@ -5,11 +5,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import javax.swing.JOptionPane;
 
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,15 +22,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.NhanKhauModel;
+import models.QuanHeModel;
 import services.NhanKhauService;
+import services.QuanHeService;
 
 public class NhanKhauController implements Initializable {
 	@FXML
@@ -50,123 +61,183 @@ public class NhanKhauController implements Initializable {
 	ObservableList<NhanKhauModel> listValueTableView;
 	private List<NhanKhauModel> listNhanKhau;
 
-	// Hien thi thong tin nhan khau
+	// hien thi thong tin nhan khau
 	public void showNhanKhau() throws ClassNotFoundException, SQLException {
 		listNhanKhau = new NhanKhauService().getListNhanKhau();
 		listValueTableView = FXCollections.observableArrayList(listNhanKhau);
-
-		// Thiet lap Table views
+		
+		// tao map anh xa gia tri Id sang maHo
+		Map<Integer, Integer> mapIdToMaho = new HashMap<>();
+		List<QuanHeModel> listQuanHe = new QuanHeService().getListQuanHe();
+		listQuanHe.forEach(quanhe -> {
+			mapIdToMaho.put(quanhe.getIdThanhVien(), quanhe.getMaHo());
+		});
+		
+		// thiet lap cac cot cho tableviews
 		colMaNhanKhau.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("id"));
 		colTen.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("ten"));
 		colTuoi.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("tuoi"));
 		colCMND.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("cmnd"));
 		colSDT.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("sdt"));
+		colMaHo.setCellValueFactory(
+				(CellDataFeatures<NhanKhauModel, String> p) -> new ReadOnlyStringWrapper(mapIdToMaho.get(p.getValue().getId()).toString())
+		);
 		tvNhanKhau.setItems(listValueTableView);
 
-		// Thiet lap Combo box
+		// thiet lap gia tri cho combobox
 		ObservableList<String> listComboBox = FXCollections.observableArrayList("Tên", "Tuổi", "id");
-		cbChooseSearch.setValue("Chọn");
+		cbChooseSearch.setValue("Tên");
 		cbChooseSearch.setItems(listComboBox);
 	}
 
-	// Tim kiem nhan khau theo ten, tuoi, id
+	// tim kiem nhan khau theo ten, tuoi, id
 	public void searchNhanKhau() {
-		ObservableList<NhanKhauModel> listValueTableView_tmp;
+		ObservableList<NhanKhauModel> listValueTableView_tmp = null;
 		String keySearch = tfSearch.getText();
 
-		// Lay ra lua chon tim kiem cua nguoi dung
+		// lay lua chon tim kiem cua khach hang
 		SingleSelectionModel<String> typeSearch = cbChooseSearch.getSelectionModel();
 		String typeSearchString = typeSearch.getSelectedItem();
 
-		// Tim kiem theo lua chon
+		// tim kiem thong tin theo lua chon da lay ra
 		switch (typeSearchString) {
 		case "Tên": {
-			// Neu khong nhap gi -> thong bao loi
+			// neu khong nhap gi -> thong bao loi
 			if (keySearch.length() == 0) {
 				tvNhanKhau.setItems(listValueTableView);
-				JOptionPane.showMessageDialog(null, "Bạn phải nhập vào cái gì đó");
+				Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào thông tin cần tìm kiếm!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
 				break;
 			}
 			
-			int index = 0;
-			for (NhanKhauModel nhanKhauModel : listNhanKhau) {
-				if (nhanKhauModel.getTen().equals(keySearch)) {
-					listValueTableView_tmp = FXCollections.observableArrayList(nhanKhauModel);
-					tvNhanKhau.setItems(listValueTableView_tmp);
+			int index = 0;	
+			List<NhanKhauModel> listNhanhKhauModelsSearch = new ArrayList<>();
+			for(NhanKhauModel nhanKhauModel : listNhanKhau) {
+				if(nhanKhauModel.getTen().contains(keySearch)) {
+					listNhanhKhauModelsSearch.add(nhanKhauModel);
 					index++;
 				}
 			}
-
-			// Duyet het vong for khong tim thay thong tin can tim -> thong bao loi
+			listValueTableView_tmp = FXCollections.observableArrayList(listNhanhKhauModelsSearch);
+			tvNhanKhau.setItems(listValueTableView_tmp);
+			
+			// neu khong tim thay thong tin can tim kiem -> thong bao toi nguoi dung khong tim thay
 			if (index == 0) {
-				JOptionPane.showMessageDialog(null, "Không tìm thấy thông tin");
+				tvNhanKhau.setItems(listValueTableView); // hien thi toan bo thong tin
+				Alert alert = new Alert(AlertType.INFORMATION, "Không tìm thấy thông tin!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
 			}
 			break;
 		}
 		case "Tuổi": {
-			// Neu khong nhap gi -> thong bao loi
+			// neu khong nhap gi -> thong bao loi
 			if (keySearch.length() == 0) {
 				tvNhanKhau.setItems(listValueTableView);
-				JOptionPane.showMessageDialog(null, "Bạn phải nhập vào cái gì đó");
+				Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào thông tin cần tìm kiếm!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
 				break;
 			}
 
-			// Kiem tra chuoi nhap vao co phai so hay khong, chua ki tu khong phai so -> in
-			// ra thong bao loi
+			// kiem tra chuoi nhap vao co phai la chuoi hop le hay khong
+			Pattern pattern = Pattern.compile("\\d{1,}");
+			if(!pattern.matcher(keySearch).matches()) {
+				Alert alert = new Alert(AlertType.WARNING, "Tuổi nhập vào phải là 1 số!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
+				break;
+			}
+			
 			int index = 0;
-			for (int i = 0; i < keySearch.length(); i++) {
-				if ((int) keySearch.charAt(i) < 48 || (int) keySearch.charAt(i) > 57)
-					index++;
-			}
-			if (index > 0) {
-				JOptionPane.showMessageDialog(null, "Bạn phải nhập vào một số");
-				break;
-			}
-
 			List<NhanKhauModel> listNhanKhau_tmp = new ArrayList<>();
 			for (NhanKhauModel nhanKhauModel : listNhanKhau) {
 				if (nhanKhauModel.getTuoi() == Integer.parseInt(keySearch)) {
 					listNhanKhau_tmp.add(nhanKhauModel);
+					index++;
 				}
 			}
 			listValueTableView_tmp = FXCollections.observableArrayList(listNhanKhau_tmp);
 			tvNhanKhau.setItems(listValueTableView_tmp);
+			
+			// neu khong tim thay thong tin tim kiem -> thong bao toi nguoi dung
+			if (index == 0) {
+				tvNhanKhau.setItems(listValueTableView); // hien thi toan bo thong tin
+				Alert alert = new Alert(AlertType.INFORMATION, "Không tìm thấy thông tin!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
+			}
 			break;
 		}
-		default: { // tim theo id, hoac khong chon tim theo gi
-			// Neu khong nhap gi -> thong bao loi
+		default: { // truong hop con lai : tim theo id
+			// neu khong nhap gi -> thong bao loi
 			if (keySearch.length() == 0) {
 				tvNhanKhau.setItems(listValueTableView);
-				JOptionPane.showMessageDialog(null, "Bạn phải nhập vào cái gì đó");
+				Alert alert = new Alert(AlertType.INFORMATION, "Bạn cần nhập vào thông tin tìm kiếm!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
 				break;
 			}
 
-			// Kiem tra chuoi nhap vao co phai so hay khong, chua ki tu khong phai so -> in
-			// ra thong bao loi
-			int index = 0;
-			for (int i = 0; i < keySearch.length(); i++) {
-				if ((int) keySearch.charAt(i) < 48 || (int) keySearch.charAt(i) > 57)
-					index++;
-			}
-			if (index > 0) {
-				JOptionPane.showMessageDialog(null, "Bạn phải nhập vào một số");
-				break;
+			// kiem tra thong tin tim kiem co hop le hay khong
+			Pattern pattern = Pattern.compile("\\d{1,}");
+			if(!pattern.matcher(keySearch).matches()) {
+				Alert alert = new Alert(AlertType.WARNING, "Bạn phải nhập vào 1 số!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
 			}
 
-			List<NhanKhauModel> listNhanKhau_tmp = new ArrayList<>();
 			for (NhanKhauModel nhanKhauModel : listNhanKhau) {
 				if (nhanKhauModel.getId() == Integer.parseInt(keySearch)) {
-					listNhanKhau_tmp.add(nhanKhauModel);
+					listValueTableView_tmp = FXCollections.observableArrayList(nhanKhauModel);
+					tvNhanKhau.setItems(listValueTableView_tmp);
+					return; 
 				}
 			}
-			listValueTableView_tmp = FXCollections.observableArrayList(listNhanKhau_tmp);
-			tvNhanKhau.setItems(listValueTableView_tmp);
+			
+			// khong tim thay thong tin -> thong bao toi nguoi dung
+			tvNhanKhau.setItems(listValueTableView);
+			Alert alert = new Alert(AlertType.WARNING, "Không tìm thấy thông tin!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
 		}
 		}
 	}
 
 	public void addNhanKhau(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		Parent home = FXMLLoader.load(getClass().getResource("/views/nhankhau/AddNhanKhau.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(home,800,600));
+        stage.setResizable(false);
+        stage.showAndWait();
+        showNhanKhau();
+	}
+	
+	public void delNhanKhau() throws IOException, ClassNotFoundException, SQLException {
+		NhanKhauModel nhanKhauModel = tvNhanKhau.getSelectionModel().getSelectedItem();
+		
+		if(nhanKhauModel == null) {
+			Alert alert = new Alert(AlertType.WARNING, "Hãy chọn nhân khẩu bạn muốn xóa!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+		} else {
+			Alert alert = new Alert(AlertType.WARNING, "Bạn có chắc chắn muốn xóa nhân khẩu này!", ButtonType.YES, ButtonType.NO);
+			alert.setHeaderText(null);
+			Optional<ButtonType> result = alert.showAndWait();
+			
+			if(result.get() == ButtonType.NO) {
+				return;
+			} else {
+				new NhanKhauService().del(nhanKhauModel.getId());
+			}
+		}
+		
+		showNhanKhau();
+	}
+	
+	public void updateNhanKhau() throws IOException, ClassNotFoundException, SQLException {
+		Parent home = FXMLLoader.load(getClass().getResource("/views/nhankhau/UpdateNhanKhau.fxml"));
         Stage stage = new Stage();
         stage.setScene(new Scene(home,800,600));
         stage.setResizable(false);

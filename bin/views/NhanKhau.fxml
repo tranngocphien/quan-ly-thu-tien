@@ -21,7 +21,7 @@
       <ComboBox fx:id="cbChooseSearch" layoutX="357.0" layoutY="49.0" prefWidth="150.0" />
       <Button layoutX="514.0" layoutY="49.0" mnemonicParsing="false" onAction="#searchNhanKhau" prefHeight="39.0" prefWidth="109.0" text="Tìm kiếm" />
       <Button layoutX="514.0" layoutY="94.0" mnemonicParsing="false" onAction="#addNhanKhau" prefHeight="82.0" prefWidth="109.0" text="Thêm nhân khẩu" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="514.0" layoutY="187.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="109.0" text="Xóa nhân khẩu" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="514.0" layoutY="278.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="109.0" text="Cập nhật nhân khẩu" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="514.0" layoutY="187.0" mnemonicParsing="false" onAction="#delNhanKhau" prefHeight="82.0" prefWidth="109.0" text="Xóa nhân khẩu" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="514.0" layoutY="278.0" mnemonicParsing="false" onAction="#updateNhanKhau" prefHeight="82.0" prefWidth="109.0" text="Cập nhật nhân khẩu" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>
