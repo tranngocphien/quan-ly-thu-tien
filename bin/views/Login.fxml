@@ -1,22 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #e4e4e4;" stylesheets="@../source/login.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <Label layoutX="400.0" layoutY="218.0" text="Username" />
-      <Label layoutX="403.0" layoutY="309.0" text="Password" />
-      <TextField fx:id="tfUsername" layoutX="522.0" layoutY="212.0" promptText="Username" />
-      <PasswordField fx:id="tfPassword" layoutX="522.0" layoutY="303.0" promptText="Password" />
-      <Button fx:id="btnLogin" layoutX="589.0" layoutY="393.0" mnemonicParsing="false" onAction="#Login" text="Login" />
-      <Label layoutX="563.0" layoutY="115.0" text="LOGIN">
-         <font>
-            <Font name="Arial Bold" size="30.0" />
-         </font>
-      </Label>
+      <Pane prefHeight="200.0" prefWidth="800.0" style="-fx-background-color: #5809d6;">
+         <children>
+            <AnchorPane layoutX="129.0" layoutY="87.0" prefHeight="414.0" prefWidth="547.0" styleClass="pane" stylesheets="@../source/login.css">
+               <children>
+                  <Button fx:id="btnLogin" layoutX="207.0" layoutY="318.0" mnemonicParsing="false" onAction="#Login" prefHeight="39.0" prefWidth="115.0" styleClass="button2" stylesheets="@../source/login.css" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <PasswordField fx:id="tfPassword" layoutX="163.0" layoutY="227.0" prefHeight="39.0" prefWidth="300.0" promptText="Password" style="-fx-border-style: none;">
+                     <font>
+                        <Font size="20.0" />
+                     </font></PasswordField>
+                  <TextField fx:id="tfUsername" layoutX="163.0" layoutY="175.0" prefHeight="39.0" prefWidth="300.0" promptText="Username">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
+                  <ImageView fitHeight="39.0" fitWidth="48.0" layoutX="114.0" layoutY="175.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../source/icon-username.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="118.0" layoutY="229.0" opacity="0.35" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../source/icon-password.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="212.0" layoutY="71.0" text="LOGIN" textFill="#5809d6">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

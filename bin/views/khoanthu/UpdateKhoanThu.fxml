@@ -5,25 +5,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="10.0" layoutY="64.0" prefHeight="73.0" prefWidth="87.0" text="Mã khoản thu" textAlignment="CENTER" wrapText="true" />
-      <TextField layoutX="117.0" layoutY="81.0" />
-      <TextField layoutX="530.0" layoutY="81.0" />
-      <TextField layoutX="530.0" layoutY="440.0" />
-      <TextField layoutX="117.0" layoutY="440.0" />
-      <Label layoutX="26.0" layoutY="446.0" text="Số tiền" />
-      <TextField layoutX="530.0" layoutY="325.0" />
-      <TextField layoutX="117.0" layoutY="325.0" />
-      <TextField layoutX="530.0" layoutY="193.0" />
-      <TextField layoutX="117.0" layoutY="199.0" />
-      <Label layoutX="6.0" layoutY="175.0" prefHeight="87.0" prefWidth="95.0" text="Tên khoản thu" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="14.0" layoutY="301.0" prefHeight="87.0" prefWidth="95.0" text="Loại khoản thu" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="415.0" layoutY="303.0" prefHeight="87.0" prefWidth="95.0" text="Loại khoản thu" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="415.0" layoutY="446.0" text="Số tiền" />
-      <Label layoutX="411.0" layoutY="66.0" prefHeight="73.0" prefWidth="87.0" text="Mã khoản thu" textAlignment="CENTER" wrapText="true" />
-      <Label layoutX="407.0" layoutY="175.0" prefHeight="87.0" prefWidth="95.0" text="Tên khoản thu" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="73.0" layoutY="64.0" prefHeight="73.0" prefWidth="114.0" text="Mã khoản thu" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="100.0" />
+      <TextField fx:id="tfMaKhoanThu" layoutX="117.0" layoutY="81.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="100.0" />
+      <TextField fx:id="tfSoTien" layoutX="220.0" layoutY="434.0" prefHeight="39.0" prefWidth="480.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="100.0" />
+      <Label layoutX="26.0" layoutY="446.0" text="Số tiền" AnchorPane.leftAnchor="100.0" />
+      <TextField fx:id="tfLoaiKhoanThu" layoutX="220.0" layoutY="315.0" prefHeight="39.0" prefWidth="480.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="100.0" />
+      <TextField fx:id="tfTenKhoanThu" layoutX="117.0" layoutY="199.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="100.0" />
+      <Label layoutX="6.0" layoutY="175.0" prefHeight="87.0" prefWidth="127.0" text="Tên khoản thu" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="100.0" />
+      <Label layoutX="94.0" layoutY="291.0" prefHeight="87.0" prefWidth="127.0" text="Loại khoản thu" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="100.0" />
       <Button layoutX="361.0" layoutY="518.0" mnemonicParsing="false" text="Cập nhật" />
    </children>
 </AnchorPane>

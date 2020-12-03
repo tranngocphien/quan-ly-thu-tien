@@ -5,15 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="351.0" layoutY="54.0" text="ĐÓNG PHÍ" />
       <Label layoutX="67.0" layoutY="119.0" text="Mã khoản thu" />
       <Button layoutX="185.0" layoutY="113.0" mnemonicParsing="false" text="Chọn" />
-      <TextField layoutX="277.0" layoutY="113.0" prefHeight="39.0" prefWidth="395.0" />
+      <TextField fx:id="tfMaKhoanThu" layoutX="277.0" layoutY="113.0" prefHeight="39.0" prefWidth="395.0" />
       <Button layoutX="185.0" layoutY="216.0" mnemonicParsing="false" text="Chọn" />
-      <TextField layoutX="277.0" layoutY="216.0" prefHeight="39.0" prefWidth="395.0" />
+      <TextField fx:id="tfMaHo" layoutX="277.0" layoutY="216.0" prefHeight="39.0" prefWidth="395.0" />
       <Label layoutX="67.0" layoutY="222.0" text="Mã hộ " />
       <Label layoutX="67.0" layoutY="323.0" text="Ngày nộp" />
       <DatePicker layoutX="277.0" layoutY="317.0" prefHeight="39.0" prefWidth="395.0" />

@@ -12,14 +12,14 @@
    <children>
       <HBox layoutX="1.0" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <VBox prefHeight="600.0" prefWidth="183.0" spacing="30.0" style="-fx-background-color: #808080;">
+            <VBox prefHeight="600.0" prefWidth="183.0" spacing="30.0" styleClass="pane" stylesheets="@../source/Home.css">
                <children>
                   <Button mnemonicParsing="false" onAction="#setTrangChu" prefHeight="133.0" prefWidth="179.0" style="-fx-background-color: #1030b1;" text="Trang chủ" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="25.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnNhanKhau" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" onAction="#setNhanKhau" prefHeight="50.0" prefWidth="193.0" style="-fx-background-color: #666666;" text="Nhân khẩu" textFill="WHITE">
+                  <Button fx:id="btnNhanKhau" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" onAction="#setNhanKhau" prefHeight="50.0" prefWidth="193.0" styleClass="button3" stylesheets="@../source/Home.css" text="Nhân khẩu" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
@@ -27,7 +27,7 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnHoKhau" mnemonicParsing="false" onAction="#setHoKhau" prefHeight="50.0" prefWidth="193.0" style="-fx-background-color: #666666;" text="Hộ khẩu" textFill="WHITE">
+                  <Button fx:id="btnHoKhau" mnemonicParsing="false" onAction="#setHoKhau" prefHeight="50.0" prefWidth="193.0" styleClass="button3" stylesheets="@../source/Home.css" text="Hộ khẩu" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>
@@ -35,7 +35,7 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnKhoanPhi" mnemonicParsing="false" onAction="#setKhoanPhi" prefHeight="50.0" prefWidth="389.0" style="-fx-background-color: #666666;" text="Khoản phí" textFill="WHITE" wrapText="true">
+                  <Button fx:id="btnKhoanPhi" mnemonicParsing="false" onAction="#setKhoanPhi" prefHeight="50.0" prefWidth="389.0" styleClass="button3" stylesheets="@../source/Home.css" text="Khoản phí" textFill="WHITE" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>
@@ -43,7 +43,7 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnDongPhi" layoutX="20.0" layoutY="191.0" mnemonicParsing="false" onAction="#setDongPhi" prefHeight="50.0" prefWidth="193.0" style="-fx-background-color: #666666;" text="Đóng phí" textFill="WHITE">
+                  <Button fx:id="btnDongPhi" layoutX="20.0" layoutY="191.0" mnemonicParsing="false" onAction="#setDongPhi" prefHeight="50.0" prefWidth="193.0" styleClass="button3" stylesheets="@../source/Home.css" text="Đóng phí" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
@@ -51,7 +51,7 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnThongKe" layoutX="20.0" layoutY="321.0" mnemonicParsing="false" onAction="#setThongKe" prefHeight="50.0" prefWidth="389.0" style="-fx-background-color: #666666;" text="Thống kê" textFill="WHITE">
+                  <Button fx:id="btnThongKe" layoutX="20.0" layoutY="321.0" mnemonicParsing="false" onAction="#setThongKe" prefHeight="50.0" prefWidth="389.0" styleClass="button3" stylesheets="@../source/Home.css" text="Thống kê" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>

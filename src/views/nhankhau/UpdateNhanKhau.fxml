@@ -7,30 +7,19 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.UpdateNhanKhau">
    <children>
-      <TextField fx:id="tfMaHoKhau" layoutX="152.0" layoutY="375.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField fx:id="tfSoDienThoai" layoutX="152.0" layoutY="319.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField fx:id="tfSoCMND" layoutX="152.0" layoutY="259.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField fx:id="tfTuoi" layoutX="152.0" layoutY="205.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField fx:id="tfTenNhanKhau" layoutX="152.0" layoutY="146.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField fx:id="tfMaNhanKhau" layoutX="152.0" layoutY="91.0" prefHeight="39.0" prefWidth="203.0" />
-      <Label layoutX="25.0" layoutY="381.0" text="Mã hộ khẩu" />
-      <Label layoutX="20.0" layoutY="325.0" text="Số điện thoại" />
-      <Label layoutX="25.0" layoutY="265.0" text="Số CMND" />
-      <Label layoutX="22.0" layoutY="211.0" text="Tuổi" />
-      <Label layoutX="20.0" layoutY="152.0" text="Tên nhân khẩu" />
-      <Label layoutX="22.0" layoutY="97.0" text="Mã nhân khẩu" />
-      <Label layoutX="405.0" layoutY="388.0" text="Mã hộ khẩu" />
-      <TextField layoutX="532.0" layoutY="326.0" prefHeight="39.0" prefWidth="203.0" />
-      <Label layoutX="400.0" layoutY="159.0" text="Tên nhân khẩu" />
-      <TextField layoutX="532.0" layoutY="382.0" prefHeight="39.0" prefWidth="203.0" />
-      <Label layoutX="400.0" layoutY="332.0" text="Số điện thoại" />
-      <TextField layoutX="532.0" layoutY="266.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField layoutX="532.0" layoutY="212.0" prefHeight="39.0" prefWidth="203.0" />
-      <TextField layoutX="532.0" layoutY="153.0" prefHeight="39.0" prefWidth="203.0" />
-      <Label layoutX="402.0" layoutY="218.0" text="Tuổi" />
-      <Label layoutX="402.0" layoutY="104.0" text="Mã nhân khẩu" />
-      <TextField layoutX="532.0" layoutY="98.0" prefHeight="39.0" prefWidth="203.0" />
-      <Label layoutX="405.0" layoutY="272.0" text="Số CMND" />
-      <Button layoutX="348.0" layoutY="478.0" mnemonicParsing="false" text="Cập nhật" />
+      <TextField fx:id="tfMaHoKhau" layoutX="295.0" layoutY="395.0" prefHeight="39.0" prefWidth="348.0" />
+      <TextField fx:id="tfSoDienThoai" layoutX="295.0" layoutY="333.0" prefHeight="39.0" prefWidth="348.0" />
+      <TextField fx:id="tfSoCMND" layoutX="295.0" layoutY="272.0" prefHeight="39.0" prefWidth="348.0" />
+      <TextField fx:id="tfTuoi" layoutX="295.0" layoutY="218.0" prefHeight="39.0" prefWidth="348.0" />
+      <TextField fx:id="tfTenNhanKhau" layoutX="295.0" layoutY="159.0" prefHeight="39.0" prefWidth="348.0" />
+      <TextField fx:id="tfMaNhanKhau" layoutX="295.0" layoutY="104.0" prefHeight="39.0" prefWidth="348.0" />
+      <Label layoutX="131.0" layoutY="401.0" text="Mã hộ khẩu" />
+      <Label layoutX="126.0" layoutY="332.0" text="Số điện thoại" />
+      <Label layoutX="131.0" layoutY="272.0" text="Số CMND" />
+      <Label layoutX="128.0" layoutY="218.0" text="Tuổi" />
+      <Label layoutX="126.0" layoutY="159.0" text="Tên nhân khẩu" />
+      <Label layoutX="128.0" layoutY="104.0" text="Mã nhân khẩu" />
+
+      <Button layoutX="366.0" layoutY="486.0" mnemonicParsing="false" text="Cập nhật" />
    </children>
 </AnchorPane>

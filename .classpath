@@ -6,7 +6,12 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFX">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/openjfx"/>
-	<classpathentry kind="lib" path="/media/trannguyenhan01092000/LEARN/javalib/mysql-connector-java-5.1.40/mysql-connector-java-8.0.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/PhienTran/Downloads/mysql-connector-java-8.0.12.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

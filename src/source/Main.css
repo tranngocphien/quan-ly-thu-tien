@@ -1,0 +1,135 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.pane {
+	-fx-background-color : #e8e3f3;
+}
+
+  
+.button1
+{
+-fx-background-color : #e8e3f3;
+-fx-background-radius :  15 0 0 15;
+}
+.button1:hover
+{
+-fx-background-color : #ffffff ;
+
+}
+.button1:pressed
+{
+-fx-background-color : #4227b8 ;
+}
+
+.button2
+{
+-fx-background-color :  #4227b8;
+-fx-background-radius :  20;
+}
+.button2:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+.button2:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+.button3
+{
+    -fx-background-color : #c6c1cf;
+    -fx-background-radius : 5px;
+}
+.button3:hover
+{
+    -fx-background-color : #524A7B ;
+}
+.button3:pressed
+{
+    -fx-background-color : #2F2B43 ;
+}
+
+.button4
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:hover
+{
+    -fx-background-color :linear-gradient(to top left, #D4CEE3, #41951C);
+    -fx-background-radius :  30 30 30 30;
+}
+.button4:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #41951C, #D4CEE3);
+    -fx-background-radius :  30 30 30 30;
+}
+
+.combo-box
+{
+    -fx-background-color : #c6c1cf;
+}
+.combo-box:hover
+{
+    -fx-background-color : #c6c1cf;
+    -fx-border-color:  #FFFF;
+}
+.combo-box:pressed
+{
+    -fx-background-color : #c6c1cf;
+    -fx-border-color:  #FFFF;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+    -fx-background-color:   #610ee7;
+}
+.table-view .column-header .label{
+
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+   -fx-alignment: CENTER_LEFT;
+}
+.table-view .cell{
+   -fx-cell-size: 30;
+  -fx-alignment: center-left;
+  -fx-text-fill: #000000;
+}
+
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+ }
+ .table-row-cell:selected .text {
+        -fx-fill : white ;
+
+ }
+
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 2em;
+
+}
+
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+	-fx-background-color: transparent;
+	-fx-border-color:derive(  #2D75E8,80%);
+	-fx-background-radius: 2em;
+	-fx-border-radius:2em;
+}
+
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive( #2D75E8,90%);
+	-fx-background-insets: 2, 0, 0;
+	-fx-background-radius: 2em;
+}
+
+.table-view .column-header .label{
+    -fx-alignment:CENTER
+}
+
+
+

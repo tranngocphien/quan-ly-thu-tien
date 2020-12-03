@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HoKhauController">
+<AnchorPane prefHeight="600.0" prefWidth="625.0" styleClass="pane" stylesheets="@../source/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HoKhauController">
    <children>
-      <TableView fx:id="tvHoKhau" layoutX="18.0" layoutY="86.0" prefHeight="500.0" prefWidth="501.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="86.0">
+      <TableView fx:id="tvHoKhau" layoutX="18.0" layoutY="86.0" prefHeight="500.0" prefWidth="501.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
         <columns>
           <TableColumn fx:id="colMaHoKhau" prefWidth="81.0" text="Mã hộ" />
             <TableColumn fx:id="colMaChuHo" prefWidth="193.0" text="Tên chủ hộ" />
-            <TableColumn fx:id="colSoThanhVien" prefWidth="98.0" resizable="false" text="      Số &#10;thành viên" />
-            <TableColumn fx:id="colDiaChi" prefWidth="134.0" text="Địa chỉ" />
+            <TableColumn fx:id="colSoThanhVien" prefWidth="96.0" resizable="false" text="Số thành viên" />
+            <TableColumn fx:id="colDiaChi" prefWidth="234.0" text="Địa chỉ" />
         </columns>
       </TableView>
-      <TextField layoutX="18.0" layoutY="29.0" prefHeight="39.0" prefWidth="301.0" />
-      <Button layoutX="495.0" layoutY="29.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="109.0" text="Tìm kiếm" />
-      <ComboBox fx:id="cbChooseSearch" layoutX="327.0" layoutY="29.0" prefHeight="39.0" prefWidth="158.0" />
-      <Button layoutX="528.0" layoutY="86.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Thêm" />
-      <Button layoutX="528.0" layoutY="138.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Sửa" />
-      <Button layoutX="528.0" layoutY="191.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="94.0" text="Xóa" />
+      <TextField layoutX="14.0" layoutY="55.0" prefHeight="40.0" prefWidth="310.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="547.0" layoutY="56.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" textFill="#2c0372" AnchorPane.bottomAnchor="510.0" AnchorPane.rightAnchor="10.0" />
+      <ComboBox fx:id="cbChooseSearch" layoutX="315.0" layoutY="55.0" prefHeight="40.0" prefWidth="170.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="125.0" />
+      <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm hộ" textFill="#3400b9" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="5.0" />
+      <Button layoutX="124.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Sửa hộ" textFill="#3400b9" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="5.0" />
+      <Button layoutX="420.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Xóa hộ" textFill="#3400b9" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="415.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>

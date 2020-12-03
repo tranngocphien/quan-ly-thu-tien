@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NhanKhauController">
+<AnchorPane prefHeight="600.0" prefWidth="625.0" styleClass="pane" stylesheets="@../source/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NhanKhauController">
    <children>
-      <TableView fx:id="tvNhanKhau" layoutX="7.0" layoutY="94.0" prefHeight="500.0" prefWidth="500.0">
+      <TableView fx:id="tvNhanKhau" layoutX="7.0" layoutY="94.0" prefHeight="500.0" prefWidth="500.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn fx:id="colMaNhanKhau" prefWidth="95.0" text="     Mã &#10;nhân khẩu" />
-          <TableColumn fx:id="colTen" prefWidth="118.0" text="Tên" />
-            <TableColumn fx:id="colTuoi" prefWidth="47.0" text="Tuổi" />
-            <TableColumn fx:id="colCMND" prefWidth="86.0" text="CMND" />
-            <TableColumn fx:id="colSDT" prefWidth="84.0" text="SĐT" />
-            <TableColumn fx:id="colMaHo" prefWidth="69.0" text="Mã hộ" />
+          <TableColumn fx:id="colMaNhanKhau" prefWidth="95.0" text="Mã nhân khẩu" />
+          <TableColumn fx:id="colTen" prefWidth="147.0" text="Họ và tên" />
+            <TableColumn fx:id="colTuoi" prefWidth="52.0" text="Tuổi" />
+            <TableColumn fx:id="colCMND" prefWidth="116.0" text="CMND" />
+            <TableColumn fx:id="colSDT" prefWidth="121.0" text="SĐT" />
+            <TableColumn fx:id="colMaHo" prefWidth="73.0" text="Mã hộ" />
         </columns>
       </TableView>
-      <TextField fx:id="tfSearch" layoutX="7.0" layoutY="49.0" prefHeight="39.0" prefWidth="310.0" />
-      <ComboBox fx:id="cbChooseSearch" layoutX="357.0" layoutY="49.0" prefWidth="150.0" />
-      <Button layoutX="514.0" layoutY="49.0" mnemonicParsing="false" onAction="#searchNhanKhau" prefHeight="39.0" prefWidth="109.0" text="Tìm kiếm" />
-      <Button layoutX="514.0" layoutY="94.0" mnemonicParsing="false" onAction="#addNhanKhau" prefHeight="82.0" prefWidth="109.0" text="Thêm nhân khẩu" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="514.0" layoutY="187.0" mnemonicParsing="false" onAction="#delNhanKhau" prefHeight="82.0" prefWidth="109.0" text="Xóa nhân khẩu" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="514.0" layoutY="278.0" mnemonicParsing="false" onAction="#updateNhanKhau" prefHeight="82.0" prefWidth="109.0" text="Cập nhật nhân khẩu" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="tfSearch" layoutX="7.0" layoutY="49.0" prefHeight="40.0" prefWidth="310.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="50.0" />
+      <ComboBox fx:id="cbChooseSearch" layoutX="333.0" layoutY="49.0" prefHeight="40.0" prefWidth="170.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="514.0" layoutY="49.0" mnemonicParsing="false" onAction="#searchNhanKhau" prefHeight="40.0" prefWidth="110.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutY="2.0" mnemonicParsing="false" onAction="#addNhanKhau" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm nhân khẩu" textAlignment="CENTER" textFill="#2e088d" wrapText="true" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="5.0" />
+      <Button layoutX="220.0" layoutY="5.0" mnemonicParsing="false" onAction="#delNhanKhau" prefHeight="40.0" prefWidth="195.0" styleClass="button1" stylesheets="@../source/Main.css" text="Xóa nhân khẩu" textAlignment="CENTER" textFill="#2e088d" wrapText="true" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="5.0" />
+      <Button layoutX="387.0" layoutY="2.0" mnemonicParsing="false" onAction="#updateNhanKhau" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Cập nhật nhân khẩu" textAlignment="CENTER" textFill="#2e088d" wrapText="true" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="415.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0" />
    </children>
 </AnchorPane>

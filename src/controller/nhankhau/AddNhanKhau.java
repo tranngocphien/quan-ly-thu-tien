@@ -55,7 +55,7 @@ public class AddNhanKhau {
 
 		// kiem tra ten nhap vao
 		// ten nhap vao la chuoi tu 1 toi 50 ki tu
-		pattern = Pattern.compile("\\w{1,50}");
+		pattern = Pattern.compile("\\w+", Pattern.UNICODE_CHARACTER_CLASS);
 		if(!pattern.matcher(tfTen.getText()).matches()) {
 			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 tên hợp lệ!", ButtonType.OK);
 			alert.setHeaderText(null);
