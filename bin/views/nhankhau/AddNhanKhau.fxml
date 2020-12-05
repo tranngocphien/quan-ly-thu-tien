@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.AddNhanKhau">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../../source/change.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.AddNhanKhau">
    <children>
       <Label layoutX="99.0" layoutY="73.0" text="Mã nhân khẩu" />
       <Label layoutX="97.0" layoutY="128.0" text="Tên nhân khẩu" />

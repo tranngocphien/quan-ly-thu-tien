@@ -1,0 +1,12 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.pane {
+	-fx-background-color :  #5809d6;
+}
+
+.subpane{
+	-fx-background-color : #000000;
+	-fx-background-radius : 5px;
+}
+
+
