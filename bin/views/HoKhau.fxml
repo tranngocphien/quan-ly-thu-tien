@@ -17,8 +17,8 @@
             <TableColumn fx:id="colDiaChi" prefWidth="234.0" text="Địa chỉ" />
         </columns>
       </TableView>
-      <TextField layoutX="14.0" layoutY="55.0" prefHeight="40.0" prefWidth="310.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="50.0" />
-      <Button layoutX="547.0" layoutY="56.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" textFill="#2c0372" AnchorPane.bottomAnchor="510.0" AnchorPane.rightAnchor="10.0" />
+      <TextField fx:id="tfSearch" layoutX="14.0" layoutY="55.0" prefHeight="40.0" prefWidth="310.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="305.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="547.0" layoutY="56.0" mnemonicParsing="false" onAction="#searchHoKhau" prefHeight="40.0" prefWidth="110.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" textFill="#2c0372" AnchorPane.bottomAnchor="510.0" AnchorPane.rightAnchor="10.0" />
       <ComboBox fx:id="cbChooseSearch" layoutX="315.0" layoutY="55.0" prefHeight="40.0" prefWidth="170.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="125.0" />
       <Button layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#addHoKhau" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm hộ" textFill="#3400b9" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="5.0" />
       <Button layoutX="124.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Sửa hộ" textFill="#3400b9" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="5.0" />
