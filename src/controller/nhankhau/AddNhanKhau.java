@@ -4,9 +4,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.swing.JOptionPane;
-
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -16,8 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import models.HoKhauModel;
 import models.NhanKhauModel;
 import models.QuanHeModel;
+import services.HoKhauService;
 import services.NhanKhauService;
 import services.QuanHeService;
 
@@ -52,11 +51,20 @@ public class AddNhanKhau {
 			alert.showAndWait();
 			return;
 		}
+		// kiem tra ID them moi co bi trung voi nhung ID da ton tai hay khong
+		List<NhanKhauModel> listNhanKhauModels = new NhanKhauService().getListNhanKhau();
+		listNhanKhauModels.stream().forEach(nhankhau -> {
+			if(nhankhau.getId() == Integer.parseInt(tfId.getText())) {
+				Alert alert = new Alert(AlertType.WARNING, "ID bị trùng với một người khác!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
+				return;
+			}
+		});
 
 		// kiem tra ten nhap vao
 		// ten nhap vao la chuoi tu 1 toi 50 ki tu
-		pattern = Pattern.compile("\\w+", Pattern.UNICODE_CHARACTER_CLASS);
-		if(!pattern.matcher(tfTen.getText()).matches()) {
+		if(tfTen.getText().length() >= 50 || tfTen.getText().length() <= 1) {
 			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 tên hợp lệ!", ButtonType.OK);
 			alert.setHeaderText(null);
 			alert.showAndWait();
@@ -102,10 +110,18 @@ public class AddNhanKhau {
 			alert.showAndWait();
 			return;
 		}
+		// kiem tra ma ho nhap vao da ton tai hay chua
+		List<HoKhauModel> listHoKhauModels = new HoKhauService().getListHoKhau();
+		long check = listHoKhauModels.stream().filter(hokhau -> hokhau.getMaHo() == Integer.parseInt(tfMaHoKhau.getText())).count();
+		if(check <= 0) {
+			Alert alert = new Alert(AlertType.WARNING, "Không có hộ khẩu này!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			return;
+		}
 		
 		// Kiem tra Quan he nhap vao
-		pattern = Pattern.compile("\\w{1,50}");
-		if(!pattern.matcher(tfTen.getText()).matches()) {
+		if(tfQuanHe.getText().length() >= 30 || tfQuanHe.getText().length() <= 1) {
 			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào 1 quan hệ hợp lệ!", ButtonType.OK);
 			alert.setHeaderText(null);
 			alert.showAndWait();

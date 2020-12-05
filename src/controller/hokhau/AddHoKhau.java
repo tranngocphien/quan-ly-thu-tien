@@ -15,4 +15,9 @@ public class AddHoKhau {
     @FXML
     private TextField tfSoDienThoai;
 
+    public void addHoKhau() {
+    	
+    }
+    
+    
 }

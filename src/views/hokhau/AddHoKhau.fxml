@@ -5,18 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="574.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="574.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hokhau.AddHoKhau">
    <children>
       <Label layoutX="84.0" layoutY="59.0" text="Mã hộ khẩu" />
       <TextField fx:id="tfMaHoKhau" layoutX="237.0" layoutY="53.0" prefHeight="39.0" prefWidth="334.0" />
       <TextField fx:id="tfMaChuHo" layoutX="237.0" layoutY="129.0" prefHeight="39.0" prefWidth="334.0" />
-      <TextField fx:id="tfSoThanhVien" layoutX="237.0" layoutY="210.0" prefHeight="39.0" prefWidth="334.0" />
-      <TextField fx:id="tfDiaChi" layoutX="237.0" layoutY="300.0" prefHeight="39.0" prefWidth="334.0" />
+      <TextField fx:id="tfDiaChi" layoutX="237.0" layoutY="210.0" prefHeight="39.0" prefWidth="334.0" />
       <Label layoutX="84.0" layoutY="135.0" text="Họ tên chủ hộ" />
-      <Label layoutX="84.0" layoutY="216.0" text="Số thành viên" />
-      <Label layoutX="84.0" layoutY="306.0" text="Địa chỉ" />
-      <Label layoutX="84.0" layoutY="392.0" text="Số điện thoại" />
-      <TextField fx:id="tfSoDienThoai" layoutX="237.0" layoutY="386.0" prefHeight="39.0" prefWidth="334.0" />
-      <Button layoutX="294.0" layoutY="473.0" mnemonicParsing="false" text="Thêm" />
+      <Label layoutX="84.0" layoutY="216.0" text="Địa chỉ" />
+      <Button layoutX="294.0" layoutY="473.0" mnemonicParsing="false" onAction="#addHoKhau" text="Thêm" />
    </children>
 </AnchorPane>

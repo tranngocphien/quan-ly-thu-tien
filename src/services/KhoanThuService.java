@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.KhoanThuModel;
-import models.NhanKhauModel;
-import models.NopTienModel;
 
 
 public class KhoanThuService {

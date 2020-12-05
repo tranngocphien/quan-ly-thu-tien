@@ -12,8 +12,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-import javax.swing.JOptionPane;
-
+import controller.nhankhau.UpdateNhanKhau;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -40,26 +39,35 @@ import services.QuanHeService;
 
 public class NhanKhauController implements Initializable {
 	@FXML
-	TableColumn<NhanKhauModel, String> colMaNhanKhau;
+	private TableColumn<NhanKhauModel, String> colMaNhanKhau;
 	@FXML
-	TableColumn<NhanKhauModel, String> colTen;
+	private TableColumn<NhanKhauModel, String> colTen;
 	@FXML
-	TableColumn<NhanKhauModel, String> colTuoi;
+	private TableColumn<NhanKhauModel, String> colTuoi;
 	@FXML
-	TableColumn<NhanKhauModel, String> colCMND;
+	private TableColumn<NhanKhauModel, String> colCMND;
 	@FXML
-	TableColumn<NhanKhauModel, String> colSDT;
+	private TableColumn<NhanKhauModel, String> colSDT;
 	@FXML
-	TableColumn<NhanKhauModel, String> colMaHo;
+	private TableColumn<NhanKhauModel, String> colMaHo;
 	@FXML
-	TableView<NhanKhauModel> tvNhanKhau;
+	private TableView<NhanKhauModel> tvNhanKhau;
 	@FXML
-	TextField tfSearch;
+	private TextField tfSearch;
 	@FXML
-	ComboBox<String> cbChooseSearch;
+	private ComboBox<String> cbChooseSearch;
 
-	ObservableList<NhanKhauModel> listValueTableView;
+	private ObservableList<NhanKhauModel> listValueTableView;
 	private List<NhanKhauModel> listNhanKhau;
+
+	
+	public TableView<NhanKhauModel> getTvNhanKhau() {
+		return tvNhanKhau;
+	}
+
+	public void setTvNhanKhau(TableView<NhanKhauModel> tvNhanKhau) {
+		this.tvNhanKhau = tvNhanKhau;
+	}
 
 	// hien thi thong tin nhan khau
 	public void showNhanKhau() throws ClassNotFoundException, SQLException {
@@ -79,9 +87,14 @@ public class NhanKhauController implements Initializable {
 		colTuoi.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("tuoi"));
 		colCMND.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("cmnd"));
 		colSDT.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("sdt"));
-		colMaHo.setCellValueFactory(
-				(CellDataFeatures<NhanKhauModel, String> p) -> new ReadOnlyStringWrapper(mapIdToMaho.get(p.getValue().getId()).toString())
-		);
+		try {
+			colMaHo.setCellValueFactory(
+					(CellDataFeatures<NhanKhauModel, String> p) -> new ReadOnlyStringWrapper(mapIdToMaho.get(p.getValue().getId()).toString())
+			);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		tvNhanKhau.setItems(listValueTableView);
 
 		// thiet lap gia tri cho combobox
@@ -214,6 +227,7 @@ public class NhanKhauController implements Initializable {
         showNhanKhau();
 	}
 	
+	// con truong hop neu xoa chu ho chua xet
 	public void delNhanKhau() throws IOException, ClassNotFoundException, SQLException {
 		NhanKhauModel nhanKhauModel = tvNhanKhau.getSelectionModel().getSelectedItem();
 		
@@ -237,9 +251,26 @@ public class NhanKhauController implements Initializable {
 	}
 	
 	public void updateNhanKhau() throws IOException, ClassNotFoundException, SQLException {
-		Parent home = FXMLLoader.load(getClass().getResource("/views/nhankhau/UpdateNhanKhau.fxml"));
+		// lay ra nhan khau can update
+		NhanKhauModel nhanKhauModel = tvNhanKhau.getSelectionModel().getSelectedItem();
+		
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/views/nhankhau/UpdateNhanKhau.fxml"));
+		Parent home = loader.load(); 
         Stage stage = new Stage();
         stage.setScene(new Scene(home,800,600));
+        UpdateNhanKhau updateNhanKhau = loader.getController();
+        
+        // bat loi truong hop khong hop le
+        if(updateNhanKhau == null) return;
+        if(nhanKhauModel == null) {
+			Alert alert = new Alert(AlertType.WARNING, "Chọn nhân khẩu cần update !", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			return;
+		}
+        updateNhanKhau.setNhanKhauModel(nhanKhauModel);
+        
         stage.setResizable(false);
         stage.showAndWait();
         showNhanKhau();

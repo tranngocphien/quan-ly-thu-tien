@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.HoKhauModel;
-import models.NhanKhauModel;
 
 public class HoKhauService {
 

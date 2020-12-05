@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.HoKhauModel;
 import models.QuanHeModel;
 
 public class QuanHeService {
