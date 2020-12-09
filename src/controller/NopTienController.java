@@ -21,7 +21,7 @@ import models.NopTienModel;
 import services.NhanKhauService;
 import services.NopTienService;
 
-public class DongPhiController implements Initializable {
+public class NopTienController implements Initializable {
 	@FXML
 	private TableView<NopTienModel> tvDongPhi;
 	@FXML
