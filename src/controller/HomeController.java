@@ -31,14 +31,14 @@ public class HomeController implements Initializable {
 	
 	
 	public void setKhoanPhi(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("/views/KhoanPhi.fxml"));
+		FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("/views/KhoanThu.fxml"));
 		Pane khoanphiPane = (Pane) loader.load();
 		borderPane.setCenter(khoanphiPane);
 
 	}
 	
 	public void setDongPhi(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/DongPhi.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Noptien.fxml"));
 		Pane dongphiPane = (Pane) loader.load();
 		borderPane.setCenter(dongphiPane);
 	}
