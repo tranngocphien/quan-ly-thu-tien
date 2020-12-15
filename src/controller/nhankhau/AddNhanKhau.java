@@ -53,15 +53,15 @@ public class AddNhanKhau {
 		}
 		// kiem tra ID them moi co bi trung voi nhung ID da ton tai hay khong
 		List<NhanKhauModel> listNhanKhauModels = new NhanKhauService().getListNhanKhau();
-		listNhanKhauModels.stream().forEach(nhankhau -> {
+		for(NhanKhauModel nhankhau : listNhanKhauModels) {
 			if(nhankhau.getId() == Integer.parseInt(tfId.getText())) {
 				Alert alert = new Alert(AlertType.WARNING, "ID bị trùng với một người khác!", ButtonType.OK);
 				alert.setHeaderText(null);
 				alert.showAndWait();
 				return;
 			}
-		});
-
+		}
+		
 		// kiem tra ten nhap vao
 		// ten nhap vao la chuoi tu 1 toi 50 ki tu
 		if(tfTen.getText().length() >= 50 || tfTen.getText().length() <= 1) {

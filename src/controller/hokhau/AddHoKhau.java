@@ -51,16 +51,17 @@ public class AddHoKhau {
 			alert.showAndWait();
 			return;
 		}
+		
 		// kiem tra maHo co bi trung voi maHo nao da ton tai truoc do hay khong
 		List<HoKhauModel> listHoKhauModels = new HoKhauService().getListHoKhau();
-		listHoKhauModels.stream().forEach(hokhau -> {
+		for(HoKhauModel hokhau : listHoKhauModels) {
 			if (hokhau.getMaHo() == Integer.parseInt(tfMaHoKhau.getText())) {
 				Alert alert = new Alert(AlertType.WARNING, "Mã hộ bị trùng với một hộ khác!", ButtonType.OK);
 				alert.setHeaderText(null);
 				alert.showAndWait();
 				return;
 			}
-		});
+		}
 
 		// kiem tra dia chi nhap vao
 		// dia chi nhap vao la 1 chuoi t 1 toi 30 ki tu

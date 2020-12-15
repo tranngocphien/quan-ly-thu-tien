@@ -53,7 +53,4 @@ public class KhoanThuModel {
 		this.loaiKhoanThu = loaiKhoanThu;
 	}
 	
-	
-	
-	
 }

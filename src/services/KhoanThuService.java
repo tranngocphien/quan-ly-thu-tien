@@ -48,6 +48,22 @@ public class KhoanThuService {
 		return true;  
 	}
 	
+	public boolean update(int maKhoanThu, String tenKhoanThu, double soTien, int loaiKhoanThu) throws ClassNotFoundException, SQLException {
+		Connection connection = MysqlConnection.getMysqlConnection();
+		PreparedStatement preparedStatement;
+
+		String query = "UPDATE khoan_thu " + "set TenKhoanThu =" + "'" + tenKhoanThu + "',"  
+				+ "'," + "SoTien ="
+				+ soTien + "," + "LoaiKhoanThu =" + "'" + loaiKhoanThu + "' where MaKhoanThu =" + maKhoanThu;
+		preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+		preparedStatement.executeUpdate();
+		preparedStatement.close();
+		connection.close();
+		
+		System.out.println(query);
+		return true;
+	}
+	
 	// checked
 	public List<KhoanThuModel> getListKhoanThu() throws ClassNotFoundException, SQLException{
 		List<KhoanThuModel> list = new ArrayList<>();

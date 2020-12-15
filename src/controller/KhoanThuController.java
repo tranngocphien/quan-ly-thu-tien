@@ -7,10 +7,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
+import controller.khoanthu.UpdateKhoanThu;
+import controller.nhankhau.UpdateNhanKhau;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,6 +36,7 @@ import javafx.stage.Stage;
 import models.KhoanThuModel;
 import models.NhanKhauModel;
 import services.KhoanThuService;
+import services.NhanKhauService;
 
 public class KhoanThuController implements Initializable {
 
@@ -157,16 +161,65 @@ public class KhoanThuController implements Initializable {
 		}
 		}
 	}
-	
+
 	public void addKhoanThu() throws IOException, ClassNotFoundException, SQLException {
 		Parent home = FXMLLoader.load(getClass().getResource("/views/khoanthu/AddKhoanThu.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(home,800,600));
-        stage.setResizable(false);
-        stage.showAndWait();
-        showKhoanThu();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(home, 800, 600));
+		stage.setResizable(false);
+		stage.showAndWait();
+		showKhoanThu();
 	}
-	
+
+	public void delKhoanThu() throws ClassNotFoundException, SQLException {
+		KhoanThuModel khoanThuModel = tvKhoanPhi.getSelectionModel().getSelectedItem();
+
+		if (khoanThuModel == null) {
+			Alert alert = new Alert(AlertType.WARNING, "Chọn khoản thu bạn muốn xóa!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+		} else {
+			Alert alert = new Alert(AlertType.WARNING, "Bạn có chắc chắn muốn xóa khoản thu này!", ButtonType.YES,
+					ButtonType.NO);
+			alert.setHeaderText(null);
+			Optional<ButtonType> result = alert.showAndWait();
+
+			if (result.get() == ButtonType.NO) {
+				return;
+			} else {
+				new KhoanThuService().del(khoanThuModel.getMaKhoanThu());
+			}
+		}
+
+		showKhoanThu();
+	}
+
+	public void updateKhoanThu() throws ClassNotFoundException, SQLException, IOException {
+		// lay ra nhan khau can update
+		KhoanThuModel khoanThuModel = tvKhoanPhi.getSelectionModel().getSelectedItem();
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/views/khoanthu/UpdateKhoanThu.fxml"));
+		Parent home = loader.load();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(home, 800, 600));
+		UpdateKhoanThu updateKhoanThu = loader.getController();
+
+		// bat loi truong hop khong hop le
+		if (updateKhoanThu == null) return;
+		if (khoanThuModel == null) {
+			Alert alert = new Alert(AlertType.WARNING, "Chọn khoản thu update !", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			return;
+		}
+		
+
+		stage.setResizable(false);
+		stage.showAndWait();
+		showKhoanThu();
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {

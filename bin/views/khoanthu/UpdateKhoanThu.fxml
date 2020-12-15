@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.khoanthu.UpdateKhoanThu">
    <children>
       <Label layoutX="73.0" layoutY="64.0" prefHeight="73.0" prefWidth="114.0" text="Mã khoản thu" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="100.0" />
       <TextField fx:id="tfMaKhoanThu" layoutX="117.0" layoutY="81.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="100.0" />

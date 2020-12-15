@@ -2,6 +2,7 @@ package controller.khoanthu;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -19,7 +20,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import models.KhoanThuModel;
+import models.NhanKhauModel;
 import services.KhoanThuService;
+import services.NhanKhauService;
 
 public class AddKhoanThu implements Initializable {
 	@FXML
@@ -43,7 +46,18 @@ public class AddKhoanThu implements Initializable {
 			alert.showAndWait();
 			return;
 		}
-
+		
+		// kiem tra ma khoan thu them moi co bi trung voi nhung ma khoan thu da ton tai hay khong
+		List<KhoanThuModel> listKhoanThuModels = new KhoanThuService().getListKhoanThu(); 
+		for(KhoanThuModel khoanThuModel : listKhoanThuModels) {
+			if(khoanThuModel.getMaKhoanThu() == Integer.parseInt(tfMaKhoanThu.getText())) {
+				Alert alert = new Alert(AlertType.WARNING, "Mã khoản thu đã bị trùng!", ButtonType.OK);
+				alert.setHeaderText(null);
+				alert.showAndWait();
+				return;
+			}
+		}
+		
 		// kiem tra ten nhap vao
 		// ten nhap vao la chuoi tu 1 toi 50 ki tu
 		if (tfTenKhoanThu.getText().length() >= 50 || tfTenKhoanThu.getText().length() <= 1) {
