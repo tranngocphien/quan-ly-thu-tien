@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="625.0" styleClass="pane" stylesheets="@../source/Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NopTienController">
    <children>
-      <TableView fx:id="tvDongPhi" layoutX="14.0" layoutY="103.0" prefHeight="503.0" prefWidth="471.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+      <TableView fx:id="tvNopTien" layoutX="14.0" layoutY="103.0" prefHeight="503.0" prefWidth="471.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
         <columns>
           <TableColumn fx:id="tbcMaNguoi" prefWidth="172.0" text="Mã người nộp tiền" />
           <TableColumn fx:id="tbcMaKhoanThu" prefWidth="255.0" text="Mã khoản thu" />

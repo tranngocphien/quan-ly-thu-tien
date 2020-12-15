@@ -23,7 +23,7 @@ import services.NopTienService;
 
 public class NopTienController implements Initializable {
 	@FXML
-	private TableView<NopTienModel> tvDongPhi;
+	private TableView<NopTienModel> tvNopTien;
 	@FXML
 	private TableColumn<NopTienModel, String> tbcMaNguoi;
 	@FXML
@@ -40,17 +40,24 @@ public class NopTienController implements Initializable {
 		listNhanKhau = new NhanKhauService().getListNhanKhau();
 		listValueTableView = FXCollections.observableArrayList(listDongPhi);
 		
+		System.out.println(listDongPhi.size());
+		
 		Map<Integer, String> mapIdToTen = new HashMap<>();
 		listNhanKhau.forEach(nhankhau -> {
 			mapIdToTen.put(nhankhau.getId(), nhankhau.getTen());
 		});
 		
-		tbcMaNguoi.setCellValueFactory(
-				(CellDataFeatures<NopTienModel, String> p) -> new ReadOnlyStringWrapper(mapIdToTen.get(p.getValue().getIdNopTien()))
-		);
+		try {
+			tbcMaNguoi.setCellValueFactory(
+					(CellDataFeatures<NopTienModel, String> p) -> new ReadOnlyStringWrapper(mapIdToTen.get(p.getValue().getIdNopTien()))
+			);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		tbcMaKhoanThu.setCellValueFactory(new PropertyValueFactory<>("maKhoanThu"));
 		tbcNgayThu.setCellValueFactory(new PropertyValueFactory<>("ngayThu"));
-		tvDongPhi.setItems(listValueTableView);
+		tvNopTien.setItems(listValueTableView);
 	}
 
 	@Override

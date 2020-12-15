@@ -110,6 +110,7 @@ public class AddNhanKhau {
 			alert.showAndWait();
 			return;
 		}
+		
 		// kiem tra ma ho nhap vao da ton tai hay chua
 		List<HoKhauModel> listHoKhauModels = new HoKhauService().getListHoKhau();
 		long check = listHoKhauModels.stream().filter(hokhau -> hokhau.getMaHo() == Integer.parseInt(tfMaHoKhau.getText())).count();

@@ -34,7 +34,6 @@ public class HomeController implements Initializable {
 		FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("/views/KhoanThu.fxml"));
 		Pane khoanphiPane = (Pane) loader.load();
 		borderPane.setCenter(khoanphiPane);
-
 	}
 	
 	public void setDongPhi(ActionEvent event) throws IOException {
