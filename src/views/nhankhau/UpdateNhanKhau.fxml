@@ -8,16 +8,18 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="pane" stylesheets="@../../source/change.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.UpdateNhanKhau">
    <children>
-      <Pane layoutX="75.0" layoutY="137.0" prefHeight="327.0" prefWidth="450.0" styleClass="subpane" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0">
+      <Pane layoutX="75.0" layoutY="137.0" prefHeight="295.0" prefWidth="450.0" styleClass="subpane" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0">
          <children>
-            <Label layoutX="11.0" layoutY="123.0" text="Tuổi" />
-            <TextField fx:id="tfTuoi" layoutX="169.0" layoutY="117.0" prefHeight="39.0" prefWidth="267.0" />
+            <Label layoutX="11.0" layoutY="129.0" text="Tuổi" />
+            <TextField fx:id="tfTuoi" layoutX="169.0" layoutY="123.0" prefHeight="39.0" prefWidth="267.0" />
             <TextField fx:id="tfSoCMND" layoutX="169.0" layoutY="179.0" prefHeight="39.0" prefWidth="267.0" />
-            <TextField fx:id="tfTenNhanKhau" layoutX="169.0" layoutY="52.0" prefHeight="39.0" prefWidth="267.0" />
-            <Label layoutX="11.0" layoutY="58.0" text="Tên nhân khẩu" />
+            <TextField fx:id="tfTenNhanKhau" layoutX="169.0" layoutY="66.0" prefHeight="39.0" prefWidth="267.0" />
+            <Label layoutX="12.0" layoutY="72.0" text="Tên nhân khẩu" />
             <Label layoutX="11.0" layoutY="185.0" text="Số CMND" />
             <TextField fx:id="tfSoDienThoai" layoutX="169.0" layoutY="239.0" prefHeight="39.0" prefWidth="267.0" />
             <Label layoutX="6.0" layoutY="245.0" text="Số điện thoại" />
+            <Label layoutX="14.0" layoutY="14.0" text="Mã nhân khẩu" />
+            <TextField fx:id="tfMaNhanKhau" editable="false" layoutX="169.0" layoutY="8.0" prefHeight="39.0" prefWidth="267.0" style="-fx-background-color: #eaeaea;" />
          </children>
       </Pane>
       <Button layoutX="261.0" layoutY="515.0" mnemonicParsing="false" onAction="#updateNhanKhau" text="Cập nhật" />
