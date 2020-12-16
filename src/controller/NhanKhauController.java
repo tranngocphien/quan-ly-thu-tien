@@ -201,6 +201,7 @@ public class NhanKhauController implements Initializable {
 				Alert alert = new Alert(AlertType.WARNING, "Bạn phải nhập vào 1 số!", ButtonType.OK);
 				alert.setHeaderText(null);
 				alert.showAndWait();
+				break;
 			}
 
 			for (NhanKhauModel nhanKhauModel : listNhanKhau) {

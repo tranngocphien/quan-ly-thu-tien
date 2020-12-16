@@ -2,6 +2,7 @@ package controller.noptien;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,6 +49,7 @@ public class AddNopTien {
 		loader.setLocation(getClass().getResource("/views/noptien/ChooseNguoiNop.fxml"));
 		Parent home = loader.load(); 
         Stage stage = new Stage();
+        stage.setTitle("Chọn người nộp");
         stage.setScene(new Scene(home,800,600));
         stage.setResizable(false);
         stage.showAndWait();
@@ -59,15 +61,28 @@ public class AddNopTien {
         tfTenNguoiNop.setText(nhanKhauModel.getTen());
 	}
 	
-	public void addNopTien(ActionEvent event) throws ClassNotFoundException, SQLException {
+	public void addNopTien(ActionEvent event) throws ClassNotFoundException, SQLException {		
 		if(tfTenKhoanThu.getText().length() == 0 || tfTenNguoiNop.getText().length() == 0) {
 			Alert alert = new Alert(AlertType.WARNING, "Vui lòng nhập khoản nộp hợp lí!", ButtonType.OK);
 			alert.setHeaderText(null);
 			alert.showAndWait();
 		} else {
+			List<NopTienModel> listNopTien = new NopTienService().getListNopTien();
+			for(NopTienModel nopTienModel : listNopTien) {
+				if(nopTienModel.getIdNopTien() == nhanKhauModel.getId() 
+						&& nopTienModel.getMaKhoanThu() == khoanThuModel.getMaKhoanThu()) {
+					Alert alert = new Alert(AlertType.WARNING, "Người này đã từng nộp khoản phí này!", ButtonType.OK);
+					alert.setHeaderText(null);
+					alert.showAndWait();
+					return;
+				}
+			}
+			
 			new NopTienService().add(new NopTienModel( nhanKhauModel.getId(),khoanThuModel.getMaKhoanThu()));
 		}
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+		stage.setTitle("Thêm nộp tiền");
+		stage.setResizable(false);
         stage.close();
 	}
 }

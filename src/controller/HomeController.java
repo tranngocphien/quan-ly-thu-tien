@@ -21,17 +21,6 @@ public class HomeController implements Initializable {
 	private BorderPane borderPane;
 	
 	public void setNhanKhau(ActionEvent event) throws IOException {
-//		Alert alert = new Alert(
-//                Alert.AlertType.INFORMATION,
-//                "Operation in progress",
-//                ButtonType.CANCEL
-//        );
-//        alert.setTitle("Running Operation");
-//        alert.setHeaderText("Please wait... ");
-//        ProgressIndicator progressIndicator = new ProgressIndicator();
-//        alert.setGraphic(progressIndicator);
-//		alert.show();
-		
 		FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("/views/NhanKhau.fxml"));
 		Pane nhankhauPane = (Pane) loader.load();
 		borderPane.setCenter(nhankhauPane);

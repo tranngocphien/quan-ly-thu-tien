@@ -8,8 +8,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class LoginController {
@@ -23,10 +26,12 @@ public class LoginController {
 		String pass = tfPassword.getText();
 		
 		// check username and password
-//		if(!name.equals("admin") || !pass.equals("admin")) {
-//			JOptionPane.showMessageDialog(null, "Sai mật khẩu hoặc tài khoản!");
-//			return false;
-//		}
+		if(!name.equals("admin") || !pass.equals("admin")) {
+			Alert alert = new Alert(AlertType.WARNING, "Bạn nhập sai mật khẩu rồi hihi!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			return;
+		}
 		
 		Parent home = FXMLLoader.load(getClass().getResource("/views/Home3.fxml"));
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
