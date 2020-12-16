@@ -18,6 +18,8 @@ public class UpdateNhanKhau {
 	private int maNhanKhau;
 	
 	@FXML
+	private TextField tfMaNhanKhau;
+	@FXML
 	private TextField tfTuoi;
 	@FXML
 	private TextField tfTenNhanKhau;
@@ -36,6 +38,7 @@ public class UpdateNhanKhau {
 		this.nhanKhauModel = nhanKhauModel;
 
 		maNhanKhau = nhanKhauModel.getId();
+		tfMaNhanKhau.setText(Integer.toString(maNhanKhau));
 		tfTuoi.setText(Integer.toString(nhanKhauModel.getTuoi()));
 		tfTenNhanKhau.setText(nhanKhauModel.getTen());
 		tfSoDienThoai.setText(nhanKhauModel.getSdt());

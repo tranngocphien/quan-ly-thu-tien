@@ -1,45 +1,39 @@
-package controller;
+package controller.noptien;
 
-import javafx.event.ActionEvent;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-import controller.nhankhau.UpdateNhanKhau;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import models.ChuHoModel;
+import models.KhoanThuModel;
 import models.NhanKhauModel;
 import models.QuanHeModel;
-import services.ChuHoService;
 import services.NhanKhauService;
 import services.QuanHeService;
 
-public class NhanKhauController implements Initializable {
+public class ChooseNguoiNop implements Initializable {
 	@FXML
 	private TableColumn<NhanKhauModel, String> colMaNhanKhau;
 	@FXML
@@ -59,30 +53,30 @@ public class NhanKhauController implements Initializable {
 	@FXML
 	private ComboBox<String> cbChooseSearch;
 
+	private NhanKhauModel nhanKhauChoose;
+	
+	public NhanKhauModel getNhanKhauChoose() {
+		return nhanKhauChoose;
+	}
+
+	public void setNhanKhauChoose(NhanKhauModel nhanKhauChoose) {
+		this.nhanKhauChoose = nhanKhauChoose;
+	}
+
 	private ObservableList<NhanKhauModel> listValueTableView;
 	private List<NhanKhauModel> listNhanKhau;
 
-	
-	public TableView<NhanKhauModel> getTvNhanKhau() {
-		return tvNhanKhau;
-	}
-
-	public void setTvNhanKhau(TableView<NhanKhauModel> tvNhanKhau) {
-		this.tvNhanKhau = tvNhanKhau;
-	}
-
-	// hien thi thong tin nhan khau
 	public void showNhanKhau() throws ClassNotFoundException, SQLException {
 		listNhanKhau = new NhanKhauService().getListNhanKhau();
 		listValueTableView = FXCollections.observableArrayList(listNhanKhau);
-		
+
 		// tao map anh xa gia tri Id sang maHo
 		Map<Integer, Integer> mapIdToMaho = new HashMap<>();
 		List<QuanHeModel> listQuanHe = new QuanHeService().getListQuanHe();
 		listQuanHe.forEach(quanhe -> {
 			mapIdToMaho.put(quanhe.getIdThanhVien(), quanhe.getMaHo());
 		});
-		
+
 		// thiet lap cac cot cho tableviews
 		colMaNhanKhau.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("id"));
 		colTen.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("ten"));
@@ -90,13 +84,12 @@ public class NhanKhauController implements Initializable {
 		colCMND.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("cmnd"));
 		colSDT.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("sdt"));
 		try {
-			colMaHo.setCellValueFactory(
-					(CellDataFeatures<NhanKhauModel, String> p) -> new ReadOnlyStringWrapper(mapIdToMaho.get(p.getValue().getId()).toString())
-			);
+			colMaHo.setCellValueFactory((CellDataFeatures<NhanKhauModel, String> p) -> new ReadOnlyStringWrapper(
+					mapIdToMaho.get(p.getValue().getId()).toString()));
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		tvNhanKhau.setItems(listValueTableView);
 
 		// thiet lap gia tri cho combobox
@@ -105,7 +98,6 @@ public class NhanKhauController implements Initializable {
 		cbChooseSearch.setItems(listComboBox);
 	}
 
-	// tim kiem nhan khau theo ten, tuoi, id
 	public void searchNhanKhau() {
 		ObservableList<NhanKhauModel> listValueTableView_tmp = null;
 		String keySearch = tfSearch.getText();
@@ -125,19 +117,20 @@ public class NhanKhauController implements Initializable {
 				alert.showAndWait();
 				break;
 			}
-			
-			int index = 0;	
+
+			int index = 0;
 			List<NhanKhauModel> listNhanhKhauModelsSearch = new ArrayList<>();
-			for(NhanKhauModel nhanKhauModel : listNhanKhau) {
-				if(nhanKhauModel.getTen().contains(keySearch)) {
+			for (NhanKhauModel nhanKhauModel : listNhanKhau) {
+				if (nhanKhauModel.getTen().contains(keySearch)) {
 					listNhanhKhauModelsSearch.add(nhanKhauModel);
 					index++;
 				}
 			}
 			listValueTableView_tmp = FXCollections.observableArrayList(listNhanhKhauModelsSearch);
 			tvNhanKhau.setItems(listValueTableView_tmp);
-			
-			// neu khong tim thay thong tin can tim kiem -> thong bao toi nguoi dung khong tim thay
+
+			// neu khong tim thay thong tin can tim kiem -> thong bao toi nguoi dung khong
+			// tim thay
 			if (index == 0) {
 				tvNhanKhau.setItems(listValueTableView); // hien thi toan bo thong tin
 				Alert alert = new Alert(AlertType.INFORMATION, "Không tìm thấy thông tin!", ButtonType.OK);
@@ -158,13 +151,13 @@ public class NhanKhauController implements Initializable {
 
 			// kiem tra chuoi nhap vao co phai la chuoi hop le hay khong
 			Pattern pattern = Pattern.compile("\\d{1,}");
-			if(!pattern.matcher(keySearch).matches()) {
+			if (!pattern.matcher(keySearch).matches()) {
 				Alert alert = new Alert(AlertType.WARNING, "Tuổi nhập vào phải là 1 số!", ButtonType.OK);
 				alert.setHeaderText(null);
 				alert.showAndWait();
 				break;
 			}
-			
+
 			int index = 0;
 			List<NhanKhauModel> listNhanKhau_tmp = new ArrayList<>();
 			for (NhanKhauModel nhanKhauModel : listNhanKhau) {
@@ -175,7 +168,7 @@ public class NhanKhauController implements Initializable {
 			}
 			listValueTableView_tmp = FXCollections.observableArrayList(listNhanKhau_tmp);
 			tvNhanKhau.setItems(listValueTableView_tmp);
-			
+
 			// neu khong tim thay thong tin tim kiem -> thong bao toi nguoi dung
 			if (index == 0) {
 				tvNhanKhau.setItems(listValueTableView); // hien thi toan bo thong tin
@@ -197,7 +190,7 @@ public class NhanKhauController implements Initializable {
 
 			// kiem tra thong tin tim kiem co hop le hay khong
 			Pattern pattern = Pattern.compile("\\d{1,}");
-			if(!pattern.matcher(keySearch).matches()) {
+			if (!pattern.matcher(keySearch).matches()) {
 				Alert alert = new Alert(AlertType.WARNING, "Bạn phải nhập vào 1 số!", ButtonType.OK);
 				alert.setHeaderText(null);
 				alert.showAndWait();
@@ -207,10 +200,10 @@ public class NhanKhauController implements Initializable {
 				if (nhanKhauModel.getId() == Integer.parseInt(keySearch)) {
 					listValueTableView_tmp = FXCollections.observableArrayList(nhanKhauModel);
 					tvNhanKhau.setItems(listValueTableView_tmp);
-					return; 
+					return;
 				}
 			}
-			
+
 			// khong tim thay thong tin -> thong bao toi nguoi dung
 			tvNhanKhau.setItems(listValueTableView);
 			Alert alert = new Alert(AlertType.WARNING, "Không tìm thấy thông tin!", ButtonType.OK);
@@ -220,88 +213,22 @@ public class NhanKhauController implements Initializable {
 		}
 	}
 
-	public void addNhanKhau(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
-		Parent home = FXMLLoader.load(getClass().getResource("/views/nhankhau/AddNhanKhau.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(home,800,600));
-        stage.setResizable(false);
-        stage.showAndWait();
-        showNhanKhau();
-	}
-	
-	// con truong hop neu xoa chu ho chua xet
-	public void delNhanKhau() throws IOException, ClassNotFoundException, SQLException {
-		NhanKhauModel nhanKhauModel = tvNhanKhau.getSelectionModel().getSelectedItem();
+	public void xacnhan(ActionEvent event) {
+		nhanKhauChoose = tvNhanKhau.getSelectionModel().getSelectedItem();
+		setNhanKhauChoose(nhanKhauChoose);
 		
-		if(nhanKhauModel == null) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy chọn nhân khẩu bạn muốn xóa!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
-		} else {
-			// kiem tra dieu kien chu ho
-			List<ChuHoModel> listChuHo = new ChuHoService().getListChuHo();
-			for(ChuHoModel chuho : listChuHo) {
-				if(chuho.getIdChuHo() == nhanKhauModel.getId()) {
-					Alert alert = new Alert(AlertType.WARNING, "Bạn không thể xóa chủ hộ tại đây, hãy xóa chủ hộ tại mục hộ khẩu!", ButtonType.OK);
-					alert.setHeaderText("Nhân khẩu này là 1 chủ hộ!");
-					alert.showAndWait();
-					return;
-				}
-			}
-			
-			Alert alert = new Alert(AlertType.WARNING, "Bạn có chắc chắn muốn xóa nhân khẩu này!", ButtonType.YES, ButtonType.NO);
-			alert.setHeaderText(null);
-			Optional<ButtonType> result = alert.showAndWait();
-			
-			if(result.get() == ButtonType.NO) {
-				return;
-			} else {
-				new NhanKhauService().del(nhanKhauModel.getId());
-			}
-		}
-		
-		showNhanKhau();
-	}
-	
-	public void updateNhanKhau() throws IOException, ClassNotFoundException, SQLException {
-		// lay ra nhan khau can update
-		NhanKhauModel nhanKhauModel = tvNhanKhau.getSelectionModel().getSelectedItem();
-		
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/views/nhankhau/UpdateNhanKhau.fxml"));
-		Parent home = loader.load(); 
-        Stage stage = new Stage();
-        stage.setScene(new Scene(home,800,600));
-        UpdateNhanKhau updateNhanKhau = loader.getController();
-        
-        // bat loi truong hop khong hop le
-        if(updateNhanKhau == null) return;
-        if(nhanKhauModel == null) {
-			Alert alert = new Alert(AlertType.WARNING, "Chọn nhân khẩu cần update !", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
-			return;
-		}
-        updateNhanKhau.setNhanKhauModel(nhanKhauModel);
-        
-        stage.setResizable(false);
-        stage.showAndWait();
-        showNhanKhau();
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.close();
 	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		try {
 			showNhanKhau();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-
 }

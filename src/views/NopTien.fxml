@@ -9,14 +9,14 @@
    <children>
       <TableView fx:id="tvNopTien" layoutX="14.0" layoutY="103.0" prefHeight="503.0" prefWidth="471.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn fx:id="tbcMaNguoi" prefWidth="172.0" text="Mã người nộp tiền" />
-          <TableColumn fx:id="tbcMaKhoanThu" prefWidth="255.0" text="Mã khoản thu" />
+          <TableColumn fx:id="tbcTenNguoi" prefWidth="172.0" text="Tên người nộp" />
+          <TableColumn fx:id="tbcTenKhoanThu" prefWidth="255.0" text="Tên khoản thu" />
           <TableColumn fx:id="tbcNgayThu" prefWidth="177.0" text="Ngày thu" />
         </columns>
       </TableView>
       <TextField fx:id="tfSearch" layoutX="10.0" layoutY="54.0" prefHeight="40.0" prefWidth="310.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" />
-      <Button layoutX="514.0" layoutY="54.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
-      <Button layoutX="10.0" layoutY="3.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm nộp tiền" textFill="#2e088d" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="5.0" />
+      <Button layoutX="514.0" layoutY="54.0" mnemonicParsing="false" onAction="#searchNopTien" prefHeight="40.0" prefWidth="110.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <Button layoutX="10.0" layoutY="3.0" mnemonicParsing="false" onAction="#addNopTien" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm nộp tiền" textFill="#2e088d" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="5.0" />
       <Button layoutX="113.0" layoutY="5.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Xóa nộp tiền" textFill="#2e088d" AnchorPane.bottomAnchor="555.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="5.0" />
       <ComboBox fx:id="cbChooseSearch" layoutX="339.0" layoutY="54.0" prefHeight="40.0" prefWidth="170.0" AnchorPane.bottomAnchor="510.0" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="50.0" />
    </children>

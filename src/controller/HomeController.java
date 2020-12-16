@@ -5,9 +5,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
@@ -16,6 +21,17 @@ public class HomeController implements Initializable {
 	private BorderPane borderPane;
 	
 	public void setNhanKhau(ActionEvent event) throws IOException {
+		Alert alert = new Alert(
+                Alert.AlertType.INFORMATION,
+                "Operation in progress",
+                ButtonType.CANCEL
+        );
+        alert.setTitle("Running Operation");
+        alert.setHeaderText("Please wait... ");
+        ProgressIndicator progressIndicator = new ProgressIndicator();
+        alert.setGraphic(progressIndicator);
+		alert.show();
+		
 		FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("/views/NhanKhau.fxml"));
 		Pane nhankhauPane = (Pane) loader.load();
 		borderPane.setCenter(nhankhauPane);
@@ -27,9 +43,7 @@ public class HomeController implements Initializable {
 		borderPane.setCenter(hokhauPane);
 
 	}
-	
-	
-	
+
 	public void setKhoanPhi(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("/views/KhoanThu.fxml"));
 		Pane khoanphiPane = (Pane) loader.load();
@@ -37,7 +51,7 @@ public class HomeController implements Initializable {
 	}
 	
 	public void setDongPhi(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Noptien.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/NopTien.fxml"));
 		Pane dongphiPane = (Pane) loader.load();
 		borderPane.setCenter(dongphiPane);
 	}

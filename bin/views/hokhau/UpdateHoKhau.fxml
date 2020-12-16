@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="pane" stylesheets="@../../source/change.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="pane" stylesheets="@../../source/change.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.hokhau.UpdateHoKhau">
    <children>
       <Pane layoutX="75.0" layoutY="96.0" prefHeight="386.0" prefWidth="450.0" styleClass="subpane" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0">
          <children>
@@ -22,7 +22,7 @@
             <TextField fx:id="tfTenChuHo" editable="false" layoutX="156.0" layoutY="89.0" prefHeight="39.0" prefWidth="269.0" style="-fx-background-color: #eaeaea;" AnchorPane.leftAnchor="156.0" AnchorPane.rightAnchor="25.0" />
          </children>
       </Pane>
-      <Button layoutX="241.0" layoutY="527.0" mnemonicParsing="false" onAction="#sua" prefHeight="39.0" prefWidth="99.0" text="Sửa" textFill="#2e00ff" />
+      <Button layoutX="241.0" layoutY="527.0" mnemonicParsing="false" onAction="#updateHoKhau" prefHeight="39.0" prefWidth="99.0" text="Sửa" textFill="#2e00ff" />
       <Label layoutX="153.0" layoutY="40.0" text="Sửa thông tin hộ khẩu" textFill="#ebebeb">
          <font>
             <Font name="System Bold" size="30.0" />

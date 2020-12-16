@@ -12,9 +12,7 @@ public class NopTienModel {
 		this.idNopTien = idNopTien;
 		this.maKhoanThu = maKhoanThu;
 	}
-	
-	
-	
+
 	public int getIdNopTien() {
 		return idNopTien;
 	}

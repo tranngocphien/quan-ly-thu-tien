@@ -52,15 +52,15 @@ public class KhoanThuService {
 		Connection connection = MysqlConnection.getMysqlConnection();
 		PreparedStatement preparedStatement;
 
-		String query = "UPDATE khoan_thu " + "set TenKhoanThu =" + "'" + tenKhoanThu + "',"  
-				+ "'," + "SoTien ="
-				+ soTien + "," + "LoaiKhoanThu =" + "'" + loaiKhoanThu + "' where MaKhoanThu =" + maKhoanThu;
+		String query = "UPDATE khoan_thu " + "set TenKhoanThu =" + "'" + tenKhoanThu + "'," + "SoTien ="
+				+ soTien + "," + "LoaiKhoanThu =" + loaiKhoanThu + " where MaKhoanThu =" + maKhoanThu;
+		System.out.println(query);
 		preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 		preparedStatement.executeUpdate();
 		preparedStatement.close();
 		connection.close();
 		
-		System.out.println(query);
+		
 		return true;
 	}
 	

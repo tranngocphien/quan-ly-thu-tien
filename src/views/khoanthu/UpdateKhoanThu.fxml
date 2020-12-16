@@ -16,7 +16,7 @@
       <TextField fx:id="tfTenKhoanThu" layoutX="240.0" layoutY="281.0" prefHeight="39.0" prefWidth="460.0" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="100.0" />
       <Label layoutX="93.0" layoutY="248.0" prefHeight="87.0" prefWidth="127.0" text="Tên khoản thu" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="93.0" />
       <Label layoutX="93.0" layoutY="335.0" prefHeight="87.0" prefWidth="127.0" text="Loại khoản thu" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="93.0" />
-      <Button layoutX="361.0" layoutY="518.0" mnemonicParsing="false" text="Cập nhật" />
+      <Button layoutX="361.0" layoutY="518.0" mnemonicParsing="false" onAction="#updateKhoanThu" text="Cập nhật" />
       <Label layoutX="241.0" layoutY="74.0" text="CẬP NHẬT KHOẢN THU">
          <font>
             <Font name="System Bold" size="30.0" />

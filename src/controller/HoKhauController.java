@@ -11,6 +11,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
+import controller.hokhau.UpdateHoKhau;
+import controller.khoanthu.UpdateKhoanThu;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,6 +34,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.ChuHoModel;
 import models.HoKhauModel;
+import models.KhoanThuModel;
 import models.NhanKhauModel;
 import models.QuanHeModel;
 import services.ChuHoService;
@@ -162,7 +165,7 @@ public class HoKhauController implements Initializable {
 				alert.showAndWait();
 				break;
 			}
-			
+
 			Map<Integer, Integer> mapMahoToId = new HashMap<>();
 			List<ChuHoModel> listChuHo = new ChuHoService().getListChuHo();
 			listChuHo.stream().forEach(chuho -> {
@@ -173,7 +176,7 @@ public class HoKhauController implements Initializable {
 			listNhanKhau.stream().forEach(nhankhau -> {
 				mapIdToTen.put(nhankhau.getId(), nhankhau.getTen());
 			});
-			
+
 			int index = 0;
 			List<HoKhauModel> listHoKhauModelsSearch = new ArrayList<>();
 			for (HoKhauModel hoKhauModel : listHoKhau) {
@@ -259,6 +262,33 @@ public class HoKhauController implements Initializable {
 			alert.showAndWait();
 		}
 		}
+	}
+
+	public void updateHoKhau() throws ClassNotFoundException, SQLException, IOException {
+		// lay ra nhan khau can update
+		HoKhauModel hoKhauModel = tvHoKhau.getSelectionModel().getSelectedItem();
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/views/hokhau/UpdateHoKhau.fxml"));
+		Parent home = loader.load();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(home, 800, 600));
+		UpdateHoKhau updateHoKhau = loader.getController();
+
+		// bat loi truong hop khong hop le
+		if (updateHoKhau == null)
+			return;
+		if (hoKhauModel == null) {
+			Alert alert = new Alert(AlertType.WARNING, "Chọn hộ khẩu cần sửa !", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+			return;
+		}
+		updateHoKhau.setHoKhauModel(hoKhauModel);
+
+		stage.setResizable(false);
+		stage.showAndWait();
+		showHoKhau();
 	}
 
 	@Override
