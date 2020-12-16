@@ -10,7 +10,7 @@ public class MysqlConnection {
         String hostName = "localhost";
         String dbName = "quan_ly_khoan_thu";
         String userName = "root";
-        String password = "mysql1234";
+        String password = "";
         return getMysqlConnection(hostName, dbName, userName, password);
     }
     

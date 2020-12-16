@@ -3,8 +3,10 @@ package controller.noptien;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -57,14 +59,15 @@ public class AddNopTien {
         tfTenNguoiNop.setText(nhanKhauModel.getTen());
 	}
 	
-	public void addNopTien() throws ClassNotFoundException, SQLException {
+	public void addNopTien(ActionEvent event) throws ClassNotFoundException, SQLException {
 		if(tfTenKhoanThu.getText().length() == 0 || tfTenNguoiNop.getText().length() == 0) {
-			Alert alert = new Alert(AlertType.WARNING, "Vui lòng chọn thông tin nộp tiền!", ButtonType.OK);
+			Alert alert = new Alert(AlertType.WARNING, "Vui lòng nhập khoản nộp hợp lí!", ButtonType.OK);
 			alert.setHeaderText(null);
 			alert.showAndWait();
-			return;
 		} else {
-			//new NopTienService().add(new NopTienModel(khoanThuModel.getMaKhoanThu(), nhanKhauModel.getId()));
+			new NopTienService().add(new NopTienModel( nhanKhauModel.getId(),khoanThuModel.getMaKhoanThu()));
 		}
+		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        stage.close();
 	}
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
@@ -30,9 +31,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import models.ChuHoModel;
 import models.KhoanThuModel;
 import models.NhanKhauModel;
 import models.NopTienModel;
+import services.ChuHoService;
 import services.KhoanThuService;
 import services.NhanKhauService;
 import services.NopTienService;
@@ -171,13 +174,37 @@ public class NopTienController implements Initializable {
 
 	public void addNopTien(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 		Parent home = FXMLLoader.load(getClass().getResource("/views/noptien/AddNopTien.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(home,800,600));
-        stage.setResizable(false);
-        stage.showAndWait();
-        showNopTien();
+		Stage stage = new Stage();
+		stage.setScene(new Scene(home, 800, 600));
+		stage.setResizable(false);
+		stage.showAndWait();
+		showNopTien();
 	}
-	
+
+	public void delNopTien() throws ClassNotFoundException, SQLException {
+		NopTienModel nopTienModel = tvNopTien.getSelectionModel().getSelectedItem();
+
+		if (nopTienModel == null) {
+			Alert alert = new Alert(AlertType.WARNING, "Hãy chọn khoản nộp bạn muốn xóa!", ButtonType.OK);
+			alert.setHeaderText(null);
+			alert.showAndWait();
+		}
+		
+		Alert alert = new Alert(AlertType.WARNING, "Bạn có chắc chắn muốn xóa nhân khẩu này!", ButtonType.YES,
+				ButtonType.NO);
+		alert.setHeaderText(null);
+		Optional<ButtonType> result = alert.showAndWait();
+
+		if (result.get() == ButtonType.NO) {
+			return;
+		} else {
+			new NopTienService().del(nopTienModel.getIdNopTien(), nopTienModel.getMaKhoanThu());
+		}
+		
+		showNopTien();
+	}
+
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
