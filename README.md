@@ -1,4 +1,4 @@
-# QuanLyThuTien
+# quan-ly-thu-tien
 Phần mềm trợ giúp việc quản lý thu phí viết bằng công cụ JavaFX
 
 # huongdancaidat
