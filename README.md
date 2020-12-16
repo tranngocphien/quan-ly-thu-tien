@@ -1,2 +1,2 @@
 # QuanLyThuTien
-Phần mềm quản lý thu phí cho ngôi làng nọ.
+Phần mềm trợ giúp việc quản lý thu phí viết bằng công cụ JavaFX
