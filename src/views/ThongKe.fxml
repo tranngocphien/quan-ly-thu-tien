@@ -5,15 +5,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ThongKeController">
    <children>
-      <TableView layoutX="13.0" layoutY="178.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
+      <TableView fx:id="tvThongKe" layoutX="13.0" layoutY="178.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
         <columns>
-            <TableColumn prefWidth="280.0" text="Tên phí" />
-            <TableColumn prefWidth="324.0" text="Tổng số tiền " />
+            <TableColumn fx:id="colTenPhi" prefWidth="280.0" text="Tên phí" />
+            <TableColumn fx:id="colTongSoTien" prefWidth="324.0" text="Tổng số tiền " />
         </columns>
       </TableView>
-      <ComboBox layoutX="10.0" layoutY="42.0" prefHeight="39.0" prefWidth="224.0" />
-      <Button layoutX="258.0" layoutY="42.0" mnemonicParsing="false" text="Lọc" />
+      <ComboBox fx:id="cbChooseSearch" layoutX="10.0" layoutY="42.0" prefHeight="39.0" prefWidth="224.0" />
+      <Button layoutX="258.0" layoutY="42.0" mnemonicParsing="false" onAction="#loc" text="Lọc" />
    </children>
 </AnchorPane>
