@@ -5,25 +5,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="600.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="516.0" layoutY="66.0" mnemonicParsing="false" text="Hiển thị" />
-      <TableView layoutX="13.0" layoutY="178.0" prefHeight="400.0" prefWidth="600.0">
+      <TableView layoutX="13.0" layoutY="178.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
         <columns>
-          <TableColumn prefWidth="94.0" text="Mã hộ" />
-          <TableColumn prefWidth="150.0" text="Loại phí" />
-            <TableColumn prefWidth="237.0" text="Tên phí" />
-            <TableColumn prefWidth="118.0" text="Số tiền " />
+            <TableColumn prefWidth="280.0" text="Tên phí" />
+            <TableColumn prefWidth="324.0" text="Tổng số tiền " />
         </columns>
       </TableView>
-      <Label layoutX="14.0" layoutY="27.0" text="Loại phí" />
-      <ComboBox layoutX="98.0" layoutY="21.0" prefWidth="150.0" />
-      <Label layoutX="278.0" layoutY="27.0" text="Mã hộ" />
-      <ComboBox layoutX="339.0" layoutY="21.0" prefWidth="150.0" />
-      <Label layoutX="18.0" layoutY="105.0" text="Số tiền" />
-      <TextField layoutX="98.0" layoutY="99.0" prefHeight="39.0" prefWidth="56.0" />
-      <Label layoutX="158.0" layoutY="105.0" text="đến" />
-      <TextField layoutX="191.0" layoutY="99.0" prefHeight="39.0" prefWidth="56.0" />
+      <ComboBox layoutX="10.0" layoutY="42.0" prefHeight="39.0" prefWidth="224.0" />
+      <Button layoutX="258.0" layoutY="42.0" mnemonicParsing="false" text="Lọc" />
    </children>
 </AnchorPane>
