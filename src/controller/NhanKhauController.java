@@ -233,6 +233,7 @@ public class NhanKhauController implements Initializable {
 	// con truong hop neu xoa chu ho chua xet
 	public void delNhanKhau() throws IOException, ClassNotFoundException, SQLException {
 		NhanKhauModel nhanKhauModel = tvNhanKhau.getSelectionModel().getSelectedItem();
+		int maho = 0;
 		
 		if(nhanKhauModel == null) {
 			Alert alert = new Alert(AlertType.WARNING, "Hãy chọn nhân khẩu bạn muốn xóa!", ButtonType.OK);
@@ -257,7 +258,16 @@ public class NhanKhauController implements Initializable {
 			if(result.get() == ButtonType.NO) {
 				return;
 			} else {
+				List<QuanHeModel> listQuanHe = new QuanHeService().getListQuanHe();
+				for(QuanHeModel quanHeModel : listQuanHe) {
+					if(quanHeModel.getIdThanhVien() == nhanKhauModel.getId()) {
+						maho = quanHeModel.getMaHo();
+						break;
+					}
+				}
+				
 				new NhanKhauService().del(nhanKhauModel.getId());
+				new QuanHeService().del(maho, nhanKhauModel.getId());
 			}
 		}
 		
