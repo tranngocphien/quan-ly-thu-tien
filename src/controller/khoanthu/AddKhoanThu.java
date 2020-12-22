@@ -69,7 +69,7 @@ public class AddKhoanThu implements Initializable {
 
 		// kiem tra soTien nhap vao
 		// so tien nhap vao phai la so va nho hon 11 chu so
-		pattern = Pattern.compile("\\d{1,11}");
+		pattern = Pattern.compile("^[1-9]\\d*(\\.\\d+)?$");
 		if (!pattern.matcher(tfSoTien.getText()).matches()) {
 			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào số tiền hợp lệ!", ButtonType.OK);
 			alert.setHeaderText(null);
